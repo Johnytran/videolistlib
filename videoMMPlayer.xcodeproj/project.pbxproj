@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC3B492B281B54DF5486C0A1 /* libPods-videoMMPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21074B935130CB12DB4BCB94 /* libPods-videoMMPlayer.a */; };
+		EB5C10B7277FD8F100BF3A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */; };
+		EB5C10B9277FD8F100BF3A77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10B8277FD8F100BF3A77 /* SceneDelegate.swift */; };
+		EB5C10BB277FD8F100BF3A77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10BA277FD8F100BF3A77 /* ViewController.swift */; };
+		EB5C10BE277FD8F100BF3A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5C10BC277FD8F100BF3A77 /* Main.storyboard */; };
+		EB5C10C0277FD8FD00BF3A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5C10BF277FD8FD00BF3A77 /* Assets.xcassets */; };
+		EB5C10C3277FD8FD00BF3A77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5C10C1277FD8FD00BF3A77 /* LaunchScreen.storyboard */; };
+		EB5C10ED2782BFDA00BF3A77 /* CoverA.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10EB2782BFDA00BF3A77 /* CoverA.swift */; };
+		EB5C10EE2782BFDA00BF3A77 /* CoverA.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5C10EC2782BFDA00BF3A77 /* CoverA.xib */; };
+		EB5C10F52782C20300BF3A77 /* String+second.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10F42782C20300BF3A77 /* String+second.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		21074B935130CB12DB4BCB94 /* libPods-videoMMPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-videoMMPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86CC8F1660FC8D7C289F7D06 /* Pods-videoMMPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-videoMMPlayer.debug.xcconfig"; path = "Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		DB9E625E8BC1C33A61A2A063 /* Pods-videoMMPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-videoMMPlayer.release.xcconfig"; path = "Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		EB5C10B3277FD8F100BF3A77 /* videoMMPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videoMMPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB5C10B8277FD8F100BF3A77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EB5C10BA277FD8F100BF3A77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB5C10BD277FD8F100BF3A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB5C10BF277FD8FD00BF3A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB5C10C2277FD8FD00BF3A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB5C10C4277FD8FD00BF3A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB5C10EB2782BFDA00BF3A77 /* CoverA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverA.swift; sourceTree = "<group>"; };
+		EB5C10EC2782BFDA00BF3A77 /* CoverA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverA.xib; sourceTree = "<group>"; };
+		EB5C10F42782C20300BF3A77 /* String+second.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+second.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB5C10B0277FD8F100BF3A77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3B492B281B54DF5486C0A1 /* libPods-videoMMPlayer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C453F6D6AB6281B2023D203 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21074B935130CB12DB4BCB94 /* libPods-videoMMPlayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CE15AA10C7CFAF8E844BC4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86CC8F1660FC8D7C289F7D06 /* Pods-videoMMPlayer.debug.xcconfig */,
+				DB9E625E8BC1C33A61A2A063 /* Pods-videoMMPlayer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EB5C10AA277FD8F100BF3A77 = {
+			isa = PBXGroup;
+			children = (
+				EB5C10B5277FD8F100BF3A77 /* videoMMPlayer */,
+				EB5C10B4277FD8F100BF3A77 /* Products */,
+				5C453F6D6AB6281B2023D203 /* Frameworks */,
+				6CE15AA10C7CFAF8E844BC4F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		EB5C10B4277FD8F100BF3A77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB5C10B3277FD8F100BF3A77 /* videoMMPlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB5C10B5277FD8F100BF3A77 /* videoMMPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				EB5C10F42782C20300BF3A77 /* String+second.swift */,
+				EB5C10EB2782BFDA00BF3A77 /* CoverA.swift */,
+				EB5C10EC2782BFDA00BF3A77 /* CoverA.xib */,
+				EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */,
+				EB5C10B8277FD8F100BF3A77 /* SceneDelegate.swift */,
+				EB5C10BA277FD8F100BF3A77 /* ViewController.swift */,
+				EB5C10BC277FD8F100BF3A77 /* Main.storyboard */,
+				EB5C10BF277FD8FD00BF3A77 /* Assets.xcassets */,
+				EB5C10C1277FD8FD00BF3A77 /* LaunchScreen.storyboard */,
+				EB5C10C4277FD8FD00BF3A77 /* Info.plist */,
+			);
+			path = videoMMPlayer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB5C10B2277FD8F100BF3A77 /* videoMMPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB5C10C7277FD8FD00BF3A77 /* Build configuration list for PBXNativeTarget "videoMMPlayer" */;
+			buildPhases = (
+				0B90884B38FEE4924ACA9505 /* [CP] Check Pods Manifest.lock */,
+				EB5C10AF277FD8F100BF3A77 /* Sources */,
+				EB5C10B0277FD8F100BF3A77 /* Frameworks */,
+				EB5C10B1277FD8F100BF3A77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = videoMMPlayer;
+			productName = videoMMPlayer;
+			productReference = EB5C10B3277FD8F100BF3A77 /* videoMMPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB5C10AB277FD8F100BF3A77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					EB5C10B2277FD8F100BF3A77 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = EB5C10AE277FD8F100BF3A77 /* Build configuration list for PBXProject "videoMMPlayer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB5C10AA277FD8F100BF3A77;
+			productRefGroup = EB5C10B4277FD8F100BF3A77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB5C10B2277FD8F100BF3A77 /* videoMMPlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB5C10B1277FD8F100BF3A77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5C10C3277FD8FD00BF3A77 /* LaunchScreen.storyboard in Resources */,
+				EB5C10C0277FD8FD00BF3A77 /* Assets.xcassets in Resources */,
+				EB5C10EE2782BFDA00BF3A77 /* CoverA.xib in Resources */,
+				EB5C10BE277FD8F100BF3A77 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B90884B38FEE4924ACA9505 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-videoMMPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB5C10AF277FD8F100BF3A77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5C10BB277FD8F100BF3A77 /* ViewController.swift in Sources */,
+				EB5C10B7277FD8F100BF3A77 /* AppDelegate.swift in Sources */,
+				EB5C10B9277FD8F100BF3A77 /* SceneDelegate.swift in Sources */,
+				EB5C10F52782C20300BF3A77 /* String+second.swift in Sources */,
+				EB5C10ED2782BFDA00BF3A77 /* CoverA.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EB5C10BC277FD8F100BF3A77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB5C10BD277FD8F100BF3A77 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EB5C10C1277FD8FD00BF3A77 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB5C10C2277FD8FD00BF3A77 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB5C10C5277FD8FD00BF3A77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB5C10C6277FD8FD00BF3A77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB5C10C8277FD8FD00BF3A77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86CC8F1660FC8D7C289F7D06 /* Pods-videoMMPlayer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K6MNW89KLL;
+				INFOPLIST_FILE = videoMMPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andy.videommp.videoMMPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB5C10C9277FD8FD00BF3A77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB9E625E8BC1C33A61A2A063 /* Pods-videoMMPlayer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K6MNW89KLL;
+				INFOPLIST_FILE = videoMMPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andy.videommp.videoMMPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB5C10AE277FD8F100BF3A77 /* Build configuration list for PBXProject "videoMMPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5C10C5277FD8FD00BF3A77 /* Debug */,
+				EB5C10C6277FD8FD00BF3A77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB5C10C7277FD8FD00BF3A77 /* Build configuration list for PBXNativeTarget "videoMMPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5C10C8277FD8FD00BF3A77 /* Debug */,
+				EB5C10C9277FD8FD00BF3A77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB5C10AB277FD8F100BF3A77 /* Project object */;
+}
