@@ -36,15 +36,10 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Bp-1y-TFP">
                                                     <rect key="frame" x="4" y="8" width="120" height="79"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="79" id="bFK-wY-Bbh"/>
-                                                        <constraint firstAttribute="width" constant="120" id="pqU-4i-zln"/>
-                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM8-Me-ub9">
-                                                    <rect key="frame" x="4.5" y="85" width="119" height="35"/>
+                                                    <rect key="frame" x="4" y="85" width="120" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="119" id="Olm-00-1Yx"/>
                                                         <constraint firstAttribute="height" constant="35" id="cGH-3p-QGm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -55,10 +50,13 @@
                                         </view>
                                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                         <constraints>
-                                            <constraint firstItem="JM8-Me-ub9" firstAttribute="centerX" secondItem="wA4-X2-0oY" secondAttribute="centerX" id="A0l-MB-xgB"/>
-                                            <constraint firstItem="2Bp-1y-TFP" firstAttribute="centerX" secondItem="wA4-X2-0oY" secondAttribute="centerX" id="dUM-l3-Ce9"/>
+                                            <constraint firstItem="JM8-Me-ub9" firstAttribute="leading" secondItem="wA4-X2-0oY" secondAttribute="leading" constant="4" id="2jS-XS-dTN"/>
+                                            <constraint firstAttribute="bottom" secondItem="2Bp-1y-TFP" secondAttribute="bottom" constant="41" id="OXB-1f-DLU"/>
+                                            <constraint firstAttribute="trailing" secondItem="JM8-Me-ub9" secondAttribute="trailing" constant="4" id="itk-l8-POa"/>
                                             <constraint firstAttribute="bottom" secondItem="JM8-Me-ub9" secondAttribute="bottom" constant="8" id="jqC-FE-1Fz"/>
                                             <constraint firstItem="2Bp-1y-TFP" firstAttribute="top" secondItem="wA4-X2-0oY" secondAttribute="top" constant="8" id="uWO-L9-4df"/>
+                                            <constraint firstItem="2Bp-1y-TFP" firstAttribute="leading" secondItem="wA4-X2-0oY" secondAttribute="leading" constant="4" id="xLn-oh-yWF"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Bp-1y-TFP" secondAttribute="trailing" constant="4" id="za9-yW-azh"/>
                                         </constraints>
                                         <size key="customSize" width="128" height="128"/>
                                         <connections>
