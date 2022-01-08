@@ -17,6 +17,8 @@
 		EB5C10ED2782BFDA00BF3A77 /* CoverA.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10EB2782BFDA00BF3A77 /* CoverA.swift */; };
 		EB5C10EE2782BFDA00BF3A77 /* CoverA.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5C10EC2782BFDA00BF3A77 /* CoverA.xib */; };
 		EB5C10F52782C20300BF3A77 /* String+second.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10F42782C20300BF3A77 /* String+second.swift */; };
+		EB5C10F82784431D00BF3A77 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10F72784431D00BF3A77 /* PlayerCell.swift */; };
+		EB5C10FB2784457400BF3A77 /* DemoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10FA2784457400BF3A77 /* DemoSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		EB5C10EB2782BFDA00BF3A77 /* CoverA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverA.swift; sourceTree = "<group>"; };
 		EB5C10EC2782BFDA00BF3A77 /* CoverA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverA.xib; sourceTree = "<group>"; };
 		EB5C10F42782C20300BF3A77 /* String+second.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+second.swift"; sourceTree = "<group>"; };
+		EB5C10F72784431D00BF3A77 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		EB5C10FA2784457400BF3A77 /* DemoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +94,9 @@
 				EB5C10EB2782BFDA00BF3A77 /* CoverA.swift */,
 				EB5C10EC2782BFDA00BF3A77 /* CoverA.xib */,
 				EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */,
+				EB5C10FA2784457400BF3A77 /* DemoSource.swift */,
 				EB5C10B8277FD8F100BF3A77 /* SceneDelegate.swift */,
+				EB5C10F72784431D00BF3A77 /* PlayerCell.swift */,
 				EB5C10BA277FD8F100BF3A77 /* ViewController.swift */,
 				EB5C10BC277FD8F100BF3A77 /* Main.storyboard */,
 				EB5C10BF277FD8FD00BF3A77 /* Assets.xcassets */,
@@ -197,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5C10FB2784457400BF3A77 /* DemoSource.swift in Sources */,
+				EB5C10F82784431D00BF3A77 /* PlayerCell.swift in Sources */,
 				EB5C10BB277FD8F100BF3A77 /* ViewController.swift in Sources */,
 				EB5C10B7277FD8F100BF3A77 /* AppDelegate.swift in Sources */,
 				EB5C10B9277FD8F100BF3A77 /* SceneDelegate.swift in Sources */,
