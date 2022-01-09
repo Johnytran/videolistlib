@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC3B492B281B54DF5486C0A1 /* libPods-videoMMPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21074B935130CB12DB4BCB94 /* libPods-videoMMPlayer.a */; };
+		79415CD4BA216A412816B284 /* Pods_videoMMPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7820CB032C284258860BF4C /* Pods_videoMMPlayer.framework */; };
 		EB5C10B7277FD8F100BF3A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */; };
 		EB5C10B9277FD8F100BF3A77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10B8277FD8F100BF3A77 /* SceneDelegate.swift */; };
 		EB5C10BB277FD8F100BF3A77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10BA277FD8F100BF3A77 /* ViewController.swift */; };
@@ -22,8 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		21074B935130CB12DB4BCB94 /* libPods-videoMMPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-videoMMPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CC8F1660FC8D7C289F7D06 /* Pods-videoMMPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-videoMMPlayer.debug.xcconfig"; path = "Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		D7820CB032C284258860BF4C /* Pods_videoMMPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_videoMMPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9E625E8BC1C33A61A2A063 /* Pods-videoMMPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-videoMMPlayer.release.xcconfig"; path = "Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		EB5C10B3277FD8F100BF3A77 /* videoMMPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videoMMPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC3B492B281B54DF5486C0A1 /* libPods-videoMMPlayer.a in Frameworks */,
+				79415CD4BA216A412816B284 /* Pods_videoMMPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +55,7 @@
 		5C453F6D6AB6281B2023D203 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				21074B935130CB12DB4BCB94 /* libPods-videoMMPlayer.a */,
+				D7820CB032C284258860BF4C /* Pods_videoMMPlayer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +117,7 @@
 				EB5C10AF277FD8F100BF3A77 /* Sources */,
 				EB5C10B0277FD8F100BF3A77 /* Frameworks */,
 				EB5C10B1277FD8F100BF3A77 /* Resources */,
+				81B944741277F753866D7C3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,6 +195,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81B944741277F753866D7C3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C033E08D00E323FB22F01920A912DB38"
-               BuildableName = "MMPlayerView.framework"
-               BlueprintName = "MMPlayerView"
+               BlueprintIdentifier = "E109C6B6B466F202BA0B94E76B45D72B"
+               BuildableName = "JJFloatingActionButton.framework"
+               BlueprintName = "JJFloatingActionButton"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

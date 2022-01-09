@@ -8,6 +8,7 @@
 import UIKit
 import MMPlayerView
 import AVFoundation
+import JJFloatingActionButton
 
 class ViewController: UIViewController {
 
@@ -20,14 +21,45 @@ class ViewController: UIViewController {
         l.repeatWhenEnd = true
         return l
     }()
+    var demoSource = DemoSource()
+    var demoData = [DataObj]();
     
     @IBOutlet weak var playerCollect: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        demoData = [
+            DataObj(image: UIImage(named: "one"),
+                    play_Url: URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4")!,
+                    title: "SRT File demo, detail show the text timeinterval")]
+        demoData += demoSource.demoData;
+        
+        
+        let actionButton = JJFloatingActionButton()
+
+        actionButton.addItem(title: "item 1", image: UIImage(named: "First")?.withRenderingMode(.alwaysTemplate)) { item in
+          // do something
+        }
+
+        actionButton.addItem(title: "item 2", image: UIImage(named: "Second")?.withRenderingMode(.alwaysTemplate)) { item in
+          // do something
+        }
+
+        actionButton.addItem(title: "item 3", image: nil) { item in
+          // do something
+        }
+
+        view.addSubview(actionButton)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+
         
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     
 
 }
@@ -95,13 +127,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 
     fileprivate func updateDetail(at indexPath: IndexPath) {
-        let value = DemoSource.shared.demoData[indexPath.row]
+        let value = demoData[indexPath.row]
 //        if let detail = self.presentedViewController as? DetailViewController {
 //            detail.data = value
 //        }
         
         self.mmPlayerLayer.thumbImageView.image = value.image
-        self.mmPlayerLayer.set(url: DemoSource.shared.demoData[indexPath.row].play_Url)
+        self.mmPlayerLayer.set(url: demoData[indexPath.row].play_Url)
         self.mmPlayerLayer.resume()
         
     }
@@ -147,12 +179,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DemoSource.shared.demoData.count
+        return demoData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCell", for: indexPath) as? PlayerCell {
-            cell.data = DemoSource.shared.demoData[indexPath.row]
+            cell.data = demoData[indexPath.row]
             return cell
         }
         return UICollectionViewCell()

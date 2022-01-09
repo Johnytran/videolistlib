@@ -1,16 +1,20 @@
 PODS:
+  - JJFloatingActionButton (2.5.0)
   - MMPlayerView (6.0.2)
 
 DEPENDENCIES:
+  - JJFloatingActionButton
   - MMPlayerView
 
 SPEC REPOS:
   trunk:
+    - JJFloatingActionButton
     - MMPlayerView
 
 SPEC CHECKSUMS:
+  JJFloatingActionButton: fdc3aefb0f28f04d0f988fa25d5fac97028a9ea7
   MMPlayerView: e28bace82369bcfbfbe29f9dcd30eeb641a46754
 
-PODFILE CHECKSUM: ddab3ab04d44b8d1f7ba5a3b6ee41f2c73267614
+PODFILE CHECKSUM: e5d66d5e161a33bfe9417831d97d709c2fbe8926
 
 COCOAPODS: 1.8.4
