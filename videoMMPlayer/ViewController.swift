@@ -10,7 +10,7 @@ import MMPlayerView
 import AVFoundation
 import JJFloatingActionButton
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     lazy var mmPlayerLayer: MMPlayerLayer = {
         let l = MMPlayerLayer()
@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     }()
     var demoSource = DemoSource()
     var demoData = [DataObj]();
+    
+    let imagePickerController = UIImagePickerController()
+    var videoURL: NSURL?
     
     @IBOutlet weak var playerCollect: UICollectionView!
     override func viewDidLoad() {
@@ -37,18 +40,48 @@ class ViewController: UIViewController {
         
         
         let actionButton = JJFloatingActionButton()
+        
+        actionButton.overlayView.backgroundColor = UIColor(hue: 0.31, saturation: 0.37, brightness: 0.10, alpha: 0.30)
+        actionButton.buttonColor = .red
+        
+        actionButton.layer.shadowColor = UIColor.black.cgColor
+        actionButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        actionButton.layer.shadowOpacity = Float(0.4)
+        actionButton.layer.shadowRadius = CGFloat(2)
+        
+        actionButton.itemAnimationConfiguration = .circularSlideIn(withRadius: 120)
+        actionButton.buttonAnimationConfiguration = .rotation(toAngle: .pi * 3 / 4)
+        actionButton.buttonAnimationConfiguration.opening.duration = 0.8
+        actionButton.buttonAnimationConfiguration.closing.duration = 0.6
+        
+        actionButton.layer.shadowColor = UIColor.black.cgColor
+        actionButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        actionButton.layer.shadowOpacity = Float(0.4)
+        actionButton.layer.shadowRadius = CGFloat(2)
+        
+        let libraryItem = actionButton.addItem()
+        libraryItem.titleLabel.text = "Library"
+        libraryItem.imageView.image = UIImage(named: "library")
+        libraryItem.buttonColor = .clear
+        libraryItem.imageSize = CGSize(width: 30, height: 30)
+        libraryItem.action = { item in
+            self.imagePickerController.sourceType = .photoLibrary
+            self.imagePickerController.delegate = self
+            self.imagePickerController.mediaTypes = ["public.movie"]
 
-        actionButton.addItem(title: "item 1", image: UIImage(named: "First")?.withRenderingMode(.alwaysTemplate)) { item in
-          // do something
+            self.present(self.imagePickerController, animated: true, completion: nil)
         }
 
-        actionButton.addItem(title: "item 2", image: UIImage(named: "Second")?.withRenderingMode(.alwaysTemplate)) { item in
-          // do something
+        let yotubeItem = actionButton.addItem()
+        yotubeItem.titleLabel.text = "Youtube"
+        yotubeItem.imageView.image = UIImage(named: "youtube")
+        yotubeItem.buttonColor = .clear
+        yotubeItem.imageSize = CGSize(width: 100, height: 50)
+        yotubeItem.action = { item in
+            
         }
 
-        actionButton.addItem(title: "item 3", image: nil) { item in
-          // do something
-        }
+
 
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
@@ -61,8 +94,15 @@ class ViewController: UIViewController {
         
     }
     
+    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        videoURL = info["UIImagePickerControllerReferenceURL"] as? NSURL
+        print(videoURL ?? "url")
+        imagePickerController.dismiss(animated: true, completion: nil)
+    }
 
 }
+
+
 
 // This protocol use to pass playerLayer to second UIViewcontroller
 extension ViewController: MMPlayerFromProtocol {
