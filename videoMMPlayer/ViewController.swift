@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     @IBOutlet weak var playerCollect: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imagePickerController.delegate = self
         
         demoData = [
             DataObj(image: UIImage(named: "one"),
@@ -94,12 +94,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
     }
     
-    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        videoURL = info["UIImagePickerControllerReferenceURL"] as? NSURL
-        print(videoURL ?? "url")
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        videoURL = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerReferenceURL")] as? NSURL
+        print(info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerReferenceURL")] ?? "url");
         imagePickerController.dismiss(animated: true, completion: nil)
     }
-
+    
 }
 
 
