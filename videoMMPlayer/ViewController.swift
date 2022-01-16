@@ -22,22 +22,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         return l
     }()
     var demoSource = DemoSource()
-    var demoData = [DataObj]();
+    
     
     let imagePickerController = UIImagePickerController()
-    var videoURL: NSURL?
     
     @IBOutlet weak var playerCollect: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
-        
-        demoData = [
-            DataObj(image: UIImage(named: "one"),
-                    play_Url: URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4")!,
-                    title: "SRT File demo, detail show the text timeinterval")]
-        demoData += demoSource.demoData;
-        
         
         let actionButton = JJFloatingActionButton()
         
@@ -94,10 +86,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
     }
     
-
+   
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        videoURL = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerReferenceURL")] as? NSURL
-        print(info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerReferenceURL")] ?? "url");
+        guard let url = info[.mediaURL] as? URL else {
+            return;
+        }
+        let demoData = [DataObj(image: UIImage(named: "one"),
+                                play_Url: url,
+                                title: "SRT File demo, detail show the text timeinterval")]
+        demoSource.demoData.insert(contentsOf: demoData, at: 0)
+        playerCollect.reloadData()
         imagePickerController.dismiss(animated: true, completion: nil)
     }
     
@@ -168,13 +167,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 
     fileprivate func updateDetail(at indexPath: IndexPath) {
-        let value = demoData[indexPath.row]
+        let value = demoSource.demoData[indexPath.row]
 //        if let detail = self.presentedViewController as? DetailViewController {
 //            detail.data = value
 //        }
         
         self.mmPlayerLayer.thumbImageView.image = value.image
-        self.mmPlayerLayer.set(url: demoData[indexPath.row].play_Url)
+        self.mmPlayerLayer.set(url: demoSource.demoData[indexPath.row].play_Url)
         self.mmPlayerLayer.resume()
         
     }
@@ -220,12 +219,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return demoData.count
+        return demoSource.demoData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCell", for: indexPath) as? PlayerCell {
-            cell.data = demoData[indexPath.row]
+            cell.data = demoSource.demoData[indexPath.row]
             return cell
         }
         return UICollectionViewCell()
