@@ -59,6 +59,9 @@
                     </constraints>
                     <size key="titleShadowOffset" width="1" height="1"/>
                     <state key="normal" title="Done!"/>
+                    <connections>
+                        <action selector="btnAddVideo:" destination="iN0-l3-epB" eventType="touchUpInside" id="z1d-qQ-6IO"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -82,6 +85,10 @@
                 <constraint firstItem="Ifl-rE-2tp" firstAttribute="top" secondItem="Vwb-kr-QUw" secondAttribute="bottom" constant="45" id="yy5-nD-7qk"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imgviewPhotoCover" destination="iT3-7C-J6h" id="02h-Cm-cXD"/>
+                <outlet property="txtVideoTitle" destination="k3p-Ch-DGF" id="Mgw-Fl-8Ah"/>
+            </connections>
             <point key="canvasLocation" x="303.62318840579712" y="166.40625"/>
         </view>
     </objects>

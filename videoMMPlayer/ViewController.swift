@@ -90,14 +90,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let url = info[.mediaURL] as? URL else {
+            imagePickerController.dismiss(animated: true, completion: nil)
             return;
         }
-        let demoData = [DataObj(image: UIImage(named: "one"),
-                                play_Url: url,
-                                title: "SRT File demo, detail show the text timeinterval")]
-        demoSource.demoData.insert(contentsOf: demoData, at: 0)
-        playerCollect.reloadData()
-        imagePickerController.dismiss(animated: true, completion: nil)
+        
+        
+        
+//        let demoData = [DataObj(image: UIImage(named: "one"),
+//                                play_Url: url,
+//                                title: "SRT File demo, detail show the text timeinterval")]
+//        demoSource.demoData.insert(contentsOf: demoData, at: 0)
+//        playerCollect.reloadData()
+        imagePickerController.dismiss(animated: true, completion: self.AddVideoInfo)
+    }
+    func AddVideoInfo(){
+        if let addVideoView = Bundle.main.loadNibNamed("InfoVideo", owner: self, options: nil)?.first as? InfoVideo {
+              view.addSubview(addVideoView)
+                    
+            
+        }
     }
     
 }
