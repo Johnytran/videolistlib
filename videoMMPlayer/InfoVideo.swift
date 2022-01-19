@@ -17,8 +17,9 @@ class InfoVideo: UIView{
         super.awakeFromNib()
         
     }
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     @IBOutlet weak var txtVideoTitle: UITextField!
