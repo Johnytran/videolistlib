@@ -67,13 +67,17 @@
                         <action selector="btnAddVideo:" destination="iN0-l3-epB" eventType="touchUpInside" id="z1d-qQ-6IO"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="single_thumb" translatesAutoresizingMaskIntoConstraints="NO" id="iT3-7C-J6h">
-                    <rect key="frame" x="20" y="355" width="240" height="128"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMn-tn-uEG">
+                    <rect key="frame" x="20" y="342" width="100" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="9fF-wX-1L0"/>
-                        <constraint firstAttribute="height" constant="128" id="dQa-tt-Nj3"/>
+                        <constraint firstAttribute="width" constant="100" id="GnU-5f-kdC"/>
+                        <constraint firstAttribute="height" constant="100" id="hyA-PZ-cIo"/>
                     </constraints>
-                </imageView>
+                    <state key="normal" backgroundImage="camera"/>
+                    <connections>
+                        <action selector="ChooseCover:" destination="iN0-l3-epB" eventType="touchUpInside" id="n9Y-ym-oKA"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.82551718462611012" green="0.67045459408400809" blue="0.86758882705479456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,21 +92,20 @@
                 <constraint firstItem="k3p-Ch-DGF" firstAttribute="top" secondItem="Ifl-rE-2tp" secondAttribute="bottom" constant="25" id="Na9-XW-rsM"/>
                 <constraint firstItem="WHR-N0-QWB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Q42-FN-B1m"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vwb-kr-QUw" secondAttribute="trailing" constant="20" id="Q6B-s7-bTB"/>
-                <constraint firstItem="iT3-7C-J6h" firstAttribute="top" secondItem="WHR-N0-QWB" secondAttribute="bottom" constant="21" id="YrV-Bo-qBB"/>
-                <constraint firstItem="iT3-7C-J6h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="i3Y-vx-oev"/>
+                <constraint firstItem="mMn-tn-uEG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="qUX-id-7HI"/>
                 <constraint firstItem="Vwb-kr-QUw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="rpj-bf-Oiu"/>
                 <constraint firstItem="Ifl-rE-2tp" firstAttribute="top" secondItem="Vwb-kr-QUw" secondAttribute="bottom" constant="28" id="uhv-UM-H5z"/>
+                <constraint firstItem="mMn-tn-uEG" firstAttribute="top" secondItem="WHR-N0-QWB" secondAttribute="bottom" constant="8" symbolic="YES" id="xIL-iK-sNC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="imgviewPhotoCover" destination="iT3-7C-J6h" id="02h-Cm-cXD"/>
                 <outlet property="txtVideoTitle" destination="k3p-Ch-DGF" id="Mgw-Fl-8Ah"/>
             </connections>
             <point key="canvasLocation" x="303.62318840579712" y="145.64732142857142"/>
         </view>
     </objects>
     <resources>
-        <image name="single_thumb" width="379" height="213"/>
+        <image name="camera" width="300" height="300"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

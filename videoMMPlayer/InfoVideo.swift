@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class InfoVideo: UIView{
+class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +24,14 @@ class InfoVideo: UIView{
     
     @IBOutlet weak var txtVideoTitle: UITextField!
     
-    @IBOutlet weak var imgviewPhotoCover: UIImageView!
+    @IBAction func ChooseCover(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.mediaTypes = ["public.image"]
+        pickerController.sourceType = .camera
+    }
+    
     @IBAction func btnAddVideo(_ sender: Any) {
     }
     

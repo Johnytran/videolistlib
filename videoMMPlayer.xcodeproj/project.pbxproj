@@ -21,6 +21,7 @@
 		EB5C10F52782C20300BF3A77 /* String+second.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10F42782C20300BF3A77 /* String+second.swift */; };
 		EB5C10F82784431D00BF3A77 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10F72784431D00BF3A77 /* PlayerCell.swift */; };
 		EB5C10FB2784457400BF3A77 /* DemoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10FA2784457400BF3A77 /* DemoSource.swift */; };
+		EBC09F302798004700AB7967 /* All+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC09F2F2798004700AB7967 /* All+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		EB5C10F42782C20300BF3A77 /* String+second.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+second.swift"; sourceTree = "<group>"; };
 		EB5C10F72784431D00BF3A77 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		EB5C10FA2784457400BF3A77 /* DemoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSource.swift; sourceTree = "<group>"; };
+		EBC09F2F2798004700AB7967 /* All+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "All+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				EB5C10C4277FD8FD00BF3A77 /* Info.plist */,
 				EB15FE482793A2D900473347 /* InfoVideo.xib */,
 				EB15FE4B2793A2FC00473347 /* InfoVideo.swift */,
+				EBC09F2F2798004700AB7967 /* All+extension.swift */,
 			);
 			path = videoMMPlayer;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				EB5C10FB2784457400BF3A77 /* DemoSource.swift in Sources */,
 				EB5C10F82784431D00BF3A77 /* PlayerCell.swift in Sources */,
+				EBC09F302798004700AB7967 /* All+extension.swift in Sources */,
 				EB5C10BB277FD8F100BF3A77 /* ViewController.swift in Sources */,
 				EB5C10B7277FD8F100BF3A77 /* AppDelegate.swift in Sources */,
 				EB5C10B9277FD8F100BF3A77 /* SceneDelegate.swift in Sources */,
