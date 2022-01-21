@@ -30,7 +30,13 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     }
     
     @IBAction func Cancel(_ sender: Any) {
-        self.removeFromSuperview();
+        UIView.transition(with: self, duration: 0.33,
+          options: [.curveEaseOut, .transitionFlipFromBottom],
+          animations: {
+            self.removeFromSuperview();
+          },
+          completion: nil
+        )
     }
     @IBOutlet weak var imgPhotoCover: UIImageView!
     @IBOutlet weak var txtVideoTitle: UITextField!
@@ -46,7 +52,14 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     }
     
     @IBAction func btnAddVideo(_ sender: Any) {
-        self.removeFromSuperview();
+        
+        UIView.transition(with: self, duration: 0.33,
+          options: [.curveEaseOut, .transitionFlipFromBottom],
+          animations: {
+            self.removeFromSuperview();
+          },
+          completion: nil
+        )
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

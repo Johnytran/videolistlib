@@ -108,7 +108,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             let formView = addVideoView.first as! InfoVideo
             formView.frame = self.view.bounds
             formView.getParent(parent: self);
-            view.addSubview(formView)
+            UIView.transition(
+                with: self.view,
+                duration: 0.5,
+                options: [.curveEaseOut, .transitionFlipFromBottom],
+                animations: {
+                    self.view.addSubview(formView)
+                })
+            
             formView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 formView.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 10),
