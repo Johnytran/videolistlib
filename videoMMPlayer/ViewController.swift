@@ -107,6 +107,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         if let addVideoView = Bundle.main.loadNibNamed("InfoVideo", owner: self, options: nil){
             let formView = addVideoView.first as! InfoVideo
             formView.frame = self.view.bounds
+            formView.getParent(parent: self);
             view.addSubview(formView)
             formView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([

@@ -10,29 +10,49 @@ import UIKit
 
 class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
+    let pickerController = UIImagePickerController()
+    var parentController = UIViewController();
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.layer.cornerRadius = 15;
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    func getParent(parent: UIViewController){
+        self.parentController = parent;
+    }
     
+    @IBAction func Cancel(_ sender: Any) {
+        self.removeFromSuperview();
+    }
+    @IBOutlet weak var imgPhotoCover: UIImageView!
     @IBOutlet weak var txtVideoTitle: UITextField!
     
     @IBAction func ChooseCover(_ sender: Any) {
-        let pickerController = UIImagePickerController()
+        
         pickerController.delegate = self
         pickerController.allowsEditing = true
         pickerController.mediaTypes = ["public.image"]
-        pickerController.sourceType = .camera
+        pickerController.sourceType = .photoLibrary
+        
+        parentController.present(self.pickerController, animated: true, completion: nil)
     }
     
     @IBAction func btnAddVideo(_ sender: Any) {
+        self.removeFromSuperview();
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        pickerController.dismiss(animated: true, completion: nil)
+        if let image = info[.originalImage] as? UIImage {
+            imgPhotoCover.image = image
+        }
+    }
 }
