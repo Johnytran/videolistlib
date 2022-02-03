@@ -9,6 +9,7 @@ import UIKit
 import MMPlayerView
 import AVFoundation
 import JJFloatingActionButton
+import SwiftUI
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
@@ -198,7 +199,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 //            detail.data = value
 //        }
         
-        self.mmPlayerLayer.thumbImageView.image = value.image
+        
+        
+        self.mmPlayerLayer.thumbImageView.downloaded(from: value.image!)
         self.mmPlayerLayer.set(url: demoSource.demoData[indexPath.row].play_Url)
         self.mmPlayerLayer.resume()
         

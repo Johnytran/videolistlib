@@ -11,7 +11,7 @@ import UIKit
 class PlayerCell: UICollectionViewCell {
     var data:DataObj? {
         didSet {
-            self.imgView.image = data?.image
+            self.imgView.downloaded(from: (data?.image)!)
             self.labTitle.text = data?.title
         }
     }

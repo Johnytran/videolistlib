@@ -22,6 +22,7 @@
 		EB5C10F82784431D00BF3A77 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10F72784431D00BF3A77 /* PlayerCell.swift */; };
 		EB5C10FB2784457400BF3A77 /* DemoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10FA2784457400BF3A77 /* DemoSource.swift */; };
 		EBC09F302798004700AB7967 /* All+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC09F2F2798004700AB7967 /* All+extension.swift */; };
+		EBDC6B8D27AA7D4100ADB277 /* ListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBDC6B8B27AA7D4100ADB277 /* ListModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		EB5C10F72784431D00BF3A77 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		EB5C10FA2784457400BF3A77 /* DemoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSource.swift; sourceTree = "<group>"; };
 		EBC09F2F2798004700AB7967 /* All+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "All+extension.swift"; sourceTree = "<group>"; };
+		EBDC6B8C27AA7D4100ADB277 /* ListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				EB15FE482793A2D900473347 /* InfoVideo.xib */,
 				EB15FE4B2793A2FC00473347 /* InfoVideo.swift */,
 				EBC09F2F2798004700AB7967 /* All+extension.swift */,
+				EBDC6B8B27AA7D4100ADB277 /* ListModel.xcdatamodeld */,
 			);
 			path = videoMMPlayer;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				EB5C10B7277FD8F100BF3A77 /* AppDelegate.swift in Sources */,
 				EB5C10B9277FD8F100BF3A77 /* SceneDelegate.swift in Sources */,
 				EB15FE4C2793A2FC00473347 /* InfoVideo.swift in Sources */,
+				EBDC6B8D27AA7D4100ADB277 /* ListModel.xcdatamodeld in Sources */,
 				EB5C10F52782C20300BF3A77 /* String+second.swift in Sources */,
 				EB5C10ED2782BFDA00BF3A77 /* CoverA.swift in Sources */,
 			);
@@ -443,6 +447,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EBDC6B8B27AA7D4100ADB277 /* ListModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EBDC6B8C27AA7D4100ADB277 /* ListModel.xcdatamodel */,
+			);
+			currentVersion = EBDC6B8C27AA7D4100ADB277 /* ListModel.xcdatamodel */;
+			path = ListModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB5C10AB277FD8F100BF3A77 /* Project object */;
 }
