@@ -202,7 +202,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         
         
         self.mmPlayerLayer.thumbImageView.downloaded(from: value.image!)
-        self.mmPlayerLayer.set(url: demoSource.demoData[indexPath.row].play_Url)
+        self.mmPlayerLayer.set(url: URL(string: demoSource.demoData[indexPath.row].play_Url!))
         self.mmPlayerLayer.resume()
         
     }
@@ -223,7 +223,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             mmPlayerLayer.thumbImageView.image = cell.imgView.image
             // set video where to play
             mmPlayerLayer.playView = cell.imgView
-            mmPlayerLayer.set(url: playURL)
+            mmPlayerLayer.set(url: URL(string: playURL)!)
         }
     }
     
