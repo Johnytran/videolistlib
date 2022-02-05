@@ -9,7 +9,8 @@ import UIKit
 import MMPlayerView
 import AVFoundation
 import JJFloatingActionButton
-import SwiftUI
+import CoreData
+
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
@@ -87,6 +88,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
     }
     
+    func saveVideo(obj: DataObj) {
+      
+      guard let appDelegate =
+        UIApplication.shared.delegate as? AppDelegate else {
+        return
+      }
+      
+      let managedContext =
+        appDelegate.persistentContainer.viewContext
+        
+      let videoList =
+        NSEntityDescription.entity(forEntityName: "VideoListEntity",
+                                   in: managedContext)!
+        
+      videoList.setValue(obj.title, forKeyPath: "videotitle")
+      videoList.setValue(obj.image, forKeyPath: "image")
+      videoList.setValue(obj.play_Url, forKeyPath: "src")
+      
+      appDelegate.saveContext()
+      
+    }
    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -95,12 +117,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             return;
         }
         
+        //print(url)
         
-        
-//        let demoData = [DataObj(image: UIImage(named: "one"),
+//        let demoData = [DataObj(image: "sss",
 //                                play_Url: url,
 //                                title: "SRT File demo, detail show the text timeinterval")]
-//        demoSource.demoData.insert(contentsOf: demoData, at: 0)
+//        saveVideo(obj: demoData)
 //        playerCollect.reloadData()
         imagePickerController.dismiss(animated: true, completion: self.AddVideoInfo)
     }
