@@ -9,8 +9,8 @@
 import UIKit
 
 struct DataObj {
-    var image: URL?
-    var play_Url: URL?
+    var image: String?
+    var play_Url: String?
     var title = ""
 }
 
@@ -20,8 +20,8 @@ class DemoSource: NSObject {
     
     
     override init() {
-        demoData = [DataObj(image: URL(string: "https://lumiere-a.akamaihd.net/v1/images/image_659514fa.jpeg"),
-                    play_Url: URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"),
+        demoData = [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/image_659514fa.jpeg",
+                    play_Url:  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
                     title: "Ultralight Beam")
             
         ]

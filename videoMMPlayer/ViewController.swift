@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imagePickerController.delegate = self
         makeFloatMenu()
         getLocalData()
-        
+        //deleteAllData("Videos")
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -49,23 +49,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         let managedContext =
           appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoListEntity")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Videos")
                 request.returnsObjectsAsFaults = false
-                do {
-                    let result = try managedContext.fetch(request)
-                    for data in result as! [NSManagedObject] {
-                        dataSource += [DataObj(image: data.value(forKey: "image") as? URL,
-                                               play_Url: data.value(forKey: "src") as? URL,
-                                    title: data.value(forKey: "videotitle") as! String)
-                            
-                        ]
-                       //print(data.value(forKey: "videotitle") as! String)
-                  }
+                
+                let result = (try? managedContext.fetch(request)) ?? []
+                for data in result as! [NSManagedObject] {
                     
-                } catch {
+                    //let title = (data.value(forKey: "title") as! String)
+                    let videourl = (data.value(forKey: "src") as! String)
+//                    let imageurl = (data.value(forKey: "image") as! String)
                     
-                    print("Failed")
+//                        dataSource += [DataObj(image: imageurl,
+//                                               play_Url: videourl,
+//                                               title: title)
+//
+//                        ]
+                       print(videourl)
                 }
+                    
+                
+        print(dataSource)
+    }
+    
+    func deleteAllData(_ entity:String) {
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+        
+        let managedContext =
+          appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                managedContext.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
     }
     
     func saveVideo(obj: DataObj) {
@@ -79,7 +104,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         appDelegate.persistentContainer.viewContext
         
       let entity =
-        NSEntityDescription.entity(forEntityName: "VideoListEntity",
+        NSEntityDescription.entity(forEntityName: "Videos",
                                    in: managedContext)!
         let videoList = NSManagedObject(entity: entity, insertInto: managedContext)
       videoList.setValue(obj.title, forKeyPath: "videotitle")
@@ -99,8 +124,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
         //print(url)
         
-        let demoData = DataObj(image: url,
-                                play_Url: url,
+        let demoData = DataObj(image: url.absoluteString,
+                               play_Url: url.absoluteString,
                                 title: "SRT File demo, detail show the text timeinterval")
         saveVideo(obj: demoData)
         playerCollect.reloadData()
@@ -205,7 +230,6 @@ extension ViewController: MMPlayerFromProtocol {
     }
     // show cell.image
     func transitionCompleted() {
-        //self.updateByContentOffset()
         self.startLoading()
     }
 }
@@ -217,45 +241,20 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        DispatchQueue.main.async { [unowned self] in
-        if self.presentedViewController != nil || self.mmPlayerLayer.isShrink == true {
-                self.playerCollect.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
-                self.updateDetail(at: indexPath)
-            } else {
-                self.presentDetail(at: indexPath)
-            }
+//        if self.presentedViewController != nil || self.mmPlayerLayer.isShrink == true {
+//                self.playerCollect.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+//                self.updateDetail(at: indexPath)
+//            } else {
+//                self.presentDetail(at: indexPath)
+//            }
         }
     }
     
-//    fileprivate func updateByContentOffset() {
-//        if mmPlayerLayer.isShrink {
-//            return
-//        }
-//
-//        if let path = findCurrentPath(),
-//            self.presentedViewController == nil {
-//            self.updateCell(at: path)
-//            //Demo SubTitle
-//            if path.row == 0, self.mmPlayerLayer.subtitleSetting.subtitleType == nil {
-//                let subtitleStr = Bundle.main.path(forResource: "srtDemo", ofType: "srt")!
-//                if let str = try? String.init(contentsOfFile: subtitleStr) {
-//                    self.mmPlayerLayer.subtitleSetting.subtitleType = .srt(info: str)
-//                    self.mmPlayerLayer.subtitleSetting.defaultTextColor = .red
-//                    self.mmPlayerLayer.subtitleSetting.defaultFont = UIFont.boldSystemFont(ofSize: 20)
-//                }
-//            }
-//        }
-//    }
 
     fileprivate func updateDetail(at indexPath: IndexPath) {
         let value = dataSource[indexPath.row]
-//        if let detail = self.presentedViewController as? DetailViewController {
-//            detail.data = value
-//        }
-        
-        
-        
         self.mmPlayerLayer.thumbImageView.downloaded(from: value.image!)
-        self.mmPlayerLayer.set(url: dataSource[indexPath.row].play_Url)
+        self.mmPlayerLayer.set(url: URL(string: dataSource[indexPath.row].play_Url!))
         self.mmPlayerLayer.resume()
         
     }
@@ -271,7 +270,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             mmPlayerLayer.thumbImageView.image = cell.imgView.image
             // set video where to play
             mmPlayerLayer.playView = cell.imgView
-            mmPlayerLayer.set(url: playURL)
+            mmPlayerLayer.set(url: URL(string: playURL))
         }
     }
     
