@@ -132,6 +132,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imagePickerController.dismiss(animated: true, completion: self.AddVideoInfo)
     }
     func AddVideoInfo(){
+        showAddForm()
+    }
+    func showAddForm(){
         if let addVideoView = Bundle.main.loadNibNamed("InfoVideo", owner: self, options: nil){
             let formView = addVideoView.first as! InfoVideo
             formView.frame = self.view.bounds
