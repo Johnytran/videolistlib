@@ -122,19 +122,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             return;
         }
         
-        //print(url)
         
-        let demoData = DataObj(image: url.absoluteString,
-                               play_Url: url.absoluteString,
-                                title: "SRT File demo, detail show the text timeinterval")
-        saveVideo(obj: demoData)
-        playerCollect.reloadData()
-        imagePickerController.dismiss(animated: true, completion: self.AddVideoInfo)
+        
+//        let demoData = DataObj(image: url.absoluteString,
+//                               play_Url: url.absoluteString,
+//                                title: "SRT File demo, detail show the text timeinterval")
+//        saveVideo(obj: demoData)
+//        playerCollect.reloadData()
+        imagePickerController.dismiss(animated: true, completion: {
+            self.showAddForm(url: url)
+        })
     }
-    func AddVideoInfo(){
-        showAddForm()
-    }
-    func showAddForm(){
+    
+    func showAddForm(url: URL){
         if let addVideoView = Bundle.main.loadNibNamed("InfoVideo", owner: self, options: nil){
             let formView = addVideoView.first as! InfoVideo
             formView.frame = self.view.bounds
