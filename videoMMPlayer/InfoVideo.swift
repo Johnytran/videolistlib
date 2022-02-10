@@ -56,6 +56,8 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
         UIView.transition(with: self, duration: 0.33,
           options: [.curveEaseOut, .transitionFlipFromBottom],
           animations: {
+            var title: String = self.txtVideoTitle.text ?? ""
+            
             self.removeFromSuperview();
           },
           completion: nil

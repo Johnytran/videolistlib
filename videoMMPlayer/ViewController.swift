@@ -93,45 +93,44 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
     }
     
-    func saveVideo(obj: DataObj) {
-      
-      guard let appDelegate =
-        UIApplication.shared.delegate as? AppDelegate else {
-        return
-      }
-      
-      let managedContext =
-        appDelegate.persistentContainer.viewContext
-        
-      let entity =
-        NSEntityDescription.entity(forEntityName: "Videos",
-                                   in: managedContext)!
-        let videoList = NSManagedObject(entity: entity, insertInto: managedContext)
-      videoList.setValue(obj.title, forKeyPath: "videotitle")
-      videoList.setValue(obj.image, forKeyPath: "image")
-      videoList.setValue(obj.play_Url, forKeyPath: "src")
-      
-      appDelegate.saveContext()
-      
-    }
-   
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let url = info[.mediaURL] as? URL else {
             imagePickerController.dismiss(animated: true, completion: nil)
             return;
         }
         
-        
-        
-//        let demoData = DataObj(image: url.absoluteString,
-//                               play_Url: url.absoluteString,
-//                                title: "SRT File demo, detail show the text timeinterval")
-//        saveVideo(obj: demoData)
-//        playerCollect.reloadData()
         imagePickerController.dismiss(animated: true, completion: {
             self.showAddForm(url: url)
         })
+    }
+    
+    func saveLocal(data: DataObj){
+//        let demoData = DataObj(image: video.absoluteString,
+//                                       play_Url: video.absoluteString,
+//                                        title: "SRT File demo, detail show the text timeinterval")
+        if(data.title).isEmpty || (data.play_Url)!.isEmpty{
+            return
+        }
+        
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+        
+        let managedContext =
+          appDelegate.persistentContainer.viewContext
+          
+        let entity =
+          NSEntityDescription.entity(forEntityName: "Videos",
+                                     in: managedContext)!
+        let videoList = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        videoList.setValue(data.title, forKeyPath: "videotitle")
+        videoList.setValue(data.image, forKeyPath: "image")
+        videoList.setValue(data.play_Url, forKeyPath: "src")
+        
+        appDelegate.saveContext()
+        playerCollect.reloadData()
     }
     
     func showAddForm(url: URL){
