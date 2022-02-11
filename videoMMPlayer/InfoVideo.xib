@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-kr-QUw">
-                    <rect key="frame" x="20" y="73" width="607" height="63"/>
+                    <rect key="frame" x="20" y="60" width="607" height="63"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="63" id="3OH-LP-OBI"/>
                     </constraints>
@@ -26,7 +26,7 @@
                     <size key="shadowOffset" width="3" height="2"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifl-rE-2tp">
-                    <rect key="frame" x="20" y="164" width="134" height="42"/>
+                    <rect key="frame" x="20" y="151" width="134" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="Pm6-7W-0f9"/>
                         <constraint firstAttribute="width" constant="134" id="Pud-BI-zOx"/>
@@ -36,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k3p-Ch-DGF">
-                    <rect key="frame" x="20" y="231" width="607" height="34"/>
+                    <rect key="frame" x="20" y="218" width="607" height="34"/>
                     <color key="backgroundColor" red="0.53373580135814391" green="0.24511826177561324" blue="0.86135786802030456" alpha="0.45553296232876711" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="YK7-rK-3wC"/>
@@ -45,7 +45,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Cover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHR-N0-QWB">
-                    <rect key="frame" x="20" y="295" width="134" height="39"/>
+                    <rect key="frame" x="20" y="282" width="134" height="39"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="134" id="UGg-QB-BTQ"/>
                         <constraint firstAttribute="height" constant="39" id="YYT-fx-KER"/>
@@ -55,7 +55,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMn-tn-uEG">
-                    <rect key="frame" x="20" y="342" width="100" height="100"/>
+                    <rect key="frame" x="20" y="329" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="GnU-5f-kdC"/>
                         <constraint firstAttribute="height" constant="100" id="hyA-PZ-cIo"/>
@@ -115,19 +115,32 @@
                         <constraint firstAttribute="height" constant="78" id="XuM-eS-74K"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKu-r1-X8V">
+                    <rect key="frame" x="0.0" y="15" width="647" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.82096123336827687" blue="0.34280948929165833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="vmP-9h-H8K"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.83351840101522845" green="0.026142907300925021" blue="0.026813515984048571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.82551718462611012" green="0.67045459408400809" blue="0.86758882705479456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Vwb-kr-QUw" firstAttribute="top" secondItem="cKu-r1-X8V" secondAttribute="bottom" constant="11" id="4mW-kQ-GXm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="k3p-Ch-DGF" secondAttribute="trailing" constant="20" id="4n7-5O-Chj"/>
                 <constraint firstItem="WHR-N0-QWB" firstAttribute="top" secondItem="k3p-Ch-DGF" secondAttribute="bottom" constant="30" id="B3x-dm-HiJ"/>
                 <constraint firstItem="QF9-w0-BpQ" firstAttribute="leading" secondItem="mMn-tn-uEG" secondAttribute="trailing" constant="51" id="CdT-Lq-saO"/>
+                <constraint firstItem="cKu-r1-X8V" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DdT-La-S7n"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="cKu-r1-X8V" secondAttribute="top" constant="29" id="IJ0-8e-r3O"/>
                 <constraint firstItem="Ifl-rE-2tp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="LGc-xj-BUP"/>
-                <constraint firstItem="Vwb-kr-QUw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="29" id="M6b-3O-QON"/>
                 <constraint firstItem="k3p-Ch-DGF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="M8E-El-LrV"/>
                 <constraint firstItem="k3p-Ch-DGF" firstAttribute="top" secondItem="Ifl-rE-2tp" secondAttribute="bottom" constant="25" id="Na9-XW-rsM"/>
                 <constraint firstItem="WHR-N0-QWB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Q42-FN-B1m"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vwb-kr-QUw" secondAttribute="trailing" constant="20" id="Q6B-s7-bTB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cKu-r1-X8V" secondAttribute="trailing" id="Twg-3u-oOF"/>
                 <constraint firstItem="Kc2-Mg-wWI" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="V69-dl-Zcq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Kc2-Mg-wWI" secondAttribute="bottom" id="p1W-kk-bmh"/>
                 <constraint firstItem="mMn-tn-uEG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="qUX-id-7HI"/>
@@ -138,6 +151,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="alertMessage" destination="cKu-r1-X8V" id="VfD-XW-XqH"/>
                 <outlet property="imgPhotoCover" destination="QF9-w0-BpQ" id="hUg-hM-6Bo"/>
                 <outlet property="txtVideoTitle" destination="k3p-Ch-DGF" id="Mgw-Fl-8Ah"/>
             </connections>

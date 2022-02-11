@@ -12,6 +12,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     
     let pickerController = UIImagePickerController()
     var parentController = UIViewController();
+    var pickedImage: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +42,9 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     @IBOutlet weak var imgPhotoCover: UIImageView!
     @IBOutlet weak var txtVideoTitle: UITextField!
     
+    @IBOutlet weak var alertMessage: UILabel!
+    
+    
     @IBAction func ChooseCover(_ sender: Any) {
         
         pickerController.delegate = self
@@ -52,11 +56,15 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     }
     
     @IBAction func btnAddVideo(_ sender: Any) {
-        
+        alertMessage.text = ""
+        let title: String = self.txtVideoTitle.text ?? ""
+        if(title.isEmpty || pickedImage.isEmpty ){
+            alertMessage.text = "Please fill video title and photo cover."
+            return
+        }
         UIView.transition(with: self, duration: 0.33,
           options: [.curveEaseOut, .transitionFlipFromBottom],
           animations: {
-            var title: String = self.txtVideoTitle.text ?? ""
             
             self.removeFromSuperview();
           },
@@ -69,5 +77,8 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
         if let image = info[.originalImage] as? UIImage {
             imgPhotoCover.image = image
         }
+        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
+        pickedImage = imageURL!.absoluteString
+        
     }
 }
