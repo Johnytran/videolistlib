@@ -13,6 +13,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     let pickerController = UIImagePickerController()
     var parentController = UIViewController();
     var pickedImage: String = ""
+    var parentVideo = URL(string: "")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +30,9 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     func getParent(parent: UIViewController){
         self.parentController = parent;
     }
-    
+    func getVideoURL(video: URL){
+        self.parentVideo = video;
+    }
     @IBAction func Cancel(_ sender: Any) {
         UIView.transition(with: self, duration: 0.33,
           options: [.curveEaseOut, .transitionFlipFromBottom],
@@ -66,7 +69,11 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
           options: [.curveEaseOut, .transitionFlipFromBottom],
           animations: {
             
-            self.removeFromSuperview();
+            let tmpData = DataObj(image: self.pickedImage,
+                                   play_Url: self.parentVideo?.absoluteString,
+                                    title: title)
+            print(tmpData)
+            //self.removeFromSuperview();
           },
           completion: nil
         )

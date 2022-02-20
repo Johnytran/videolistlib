@@ -100,14 +100,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
         
         imagePickerController.dismiss(animated: true, completion: {
-            self.showAddForm(url: url)
+            self.showAddForm(videourl: url)
         })
     }
     
     func saveLocal(data: DataObj){
-//        let demoData = DataObj(image: video.absoluteString,
-//                                       play_Url: video.absoluteString,
-//                                        title: "SRT File demo, detail show the text timeinterval")
+
         if(data.title).isEmpty || (data.play_Url)!.isEmpty{
             return
         }
@@ -133,11 +131,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         playerCollect.reloadData()
     }
     
-    func showAddForm(url: URL){
+    func showAddForm(videourl: URL){
         if let addVideoView = Bundle.main.loadNibNamed("InfoVideo", owner: self, options: nil){
             let formView = addVideoView.first as! InfoVideo
             formView.frame = self.view.bounds
             formView.getParent(parent: self);
+            formView.getVideoURL(video: videourl);
             UIView.transition(
                 with: self.view,
                 duration: 0.5,
