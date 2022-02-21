@@ -10,9 +10,13 @@ import MMPlayerView
 import AVFoundation
 import JJFloatingActionButton
 import CoreData
+import PhotosUI
 
-
-class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class ViewController: UIViewController, PHPickerViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        <#code#>
+    }
+    
 
     lazy var mmPlayerLayer: MMPlayerLayer = {
         let l = MMPlayerLayer()
@@ -67,7 +71,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
                        print(videourl)
                 }
                     
-                
+        dataSource = [DataObj(image: Optional("file:///Users/owner/Library/Developer/CoreSimulator/Devices/36A14FA3-84CD-4BD2-A919-C5B9747D0172/data/Containers/Data/Application/8EAA087F-30EA-4051-B1E7-710D27178FE5/tmp/CF1786AC-3AE5-4E91-B811-C40A726AE8F2.jpeg"), play_Url: Optional("file:///Users/owner/Library/Developer/CoreSimulator/Devices/36A14FA3-84CD-4BD2-A919-C5B9747D0172/data/Containers/Data/PluginKitPlugin/5F3F9884-5401-4CE6-A355-C5C933711674/tmp/trim.FA994DE1-8B22-4689-BF05-E433A27B56B9.MOV"), title: "disaffected")]
         print(dataSource)
     }
     
@@ -94,7 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let url = info[.mediaURL] as? URL else {
+        guard let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL else {
             imagePickerController.dismiss(animated: true, completion: nil)
             return;
         }
@@ -182,11 +186,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         libraryItem.buttonColor = .clear
         libraryItem.imageSize = CGSize(width: 30, height: 30)
         libraryItem.action = { item in
-            self.imagePickerController.sourceType = .photoLibrary
-            self.imagePickerController.delegate = self
-            self.imagePickerController.mediaTypes = ["public.movie"]
-
-            self.present(self.imagePickerController, animated: true, completion: nil)
+//            self.imagePickerController.sourceType = .photoLibrary
+//            self.imagePickerController.delegate = self
+//            self.imagePickerController.mediaTypes = ["public.movie"]
+//
+//            self.present(self.imagePickerController, animated: true, completion: nil)
+            
+            let photoLibrary = PHPhotoLibrary.shared()
+            let configuration = PHPickerConfiguration(photoLibrary: photoLibrary)
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            present(picker, animated: true)
         }
 
         let yotubeItem = actionButton.addItem()
