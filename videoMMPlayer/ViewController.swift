@@ -12,10 +12,8 @@ import JJFloatingActionButton
 import CoreData
 import PhotosUI
 
-class ViewController: UIViewController, PHPickerViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        <#code#>
-    }
+class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     
 
     lazy var mmPlayerLayer: MMPlayerLayer = {
@@ -45,34 +43,43 @@ class ViewController: UIViewController, PHPickerViewControllerDelegate, UIImageP
     }
     
     func getLocalData(){
-        guard let appDelegate =
-          UIApplication.shared.delegate as? AppDelegate else {
-          return
-        }
-        
-        let managedContext =
-          appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Videos")
-                request.returnsObjectsAsFaults = false
-                
-                let result = (try? managedContext.fetch(request)) ?? []
-                for data in result as! [NSManagedObject] {
-                    
-                    //let title = (data.value(forKey: "title") as! String)
-                    let videourl = (data.value(forKey: "src") as! String)
-//                    let imageurl = (data.value(forKey: "image") as! String)
-                    
-//                        dataSource += [DataObj(image: imageurl,
-//                                               play_Url: videourl,
-//                                               title: title)
+//        guard let appDelegate =
+//          UIApplication.shared.delegate as? AppDelegate else {
+//          return
+//        }
 //
-//                        ]
-                       print(videourl)
-                }
+//        let managedContext =
+//          appDelegate.persistentContainer.viewContext
+//
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Videos")
+//        request.returnsObjectsAsFaults = false
+//
+//        let result = (try? managedContext.fetch(request)) ?? []
+//        for data in result as! [NSManagedObject] {
+//
+//            //let title = (data.value(forKey: "title") as! String)
+//            let videourl = (data.value(forKey: "src") as! String)
+////                    let imageurl = (data.value(forKey: "image") as! String)
+//
+////                        dataSource += [DataObj(image: imageurl,
+////                                               play_Url: videourl,
+////                                               title: title)
+////
+////                        ]
+//               print(videourl)
+//         }
                     
-        dataSource = [DataObj(image: Optional("file:///Users/owner/Library/Developer/CoreSimulator/Devices/36A14FA3-84CD-4BD2-A919-C5B9747D0172/data/Containers/Data/Application/8EAA087F-30EA-4051-B1E7-710D27178FE5/tmp/CF1786AC-3AE5-4E91-B811-C40A726AE8F2.jpeg"), play_Url: Optional("file:///Users/owner/Library/Developer/CoreSimulator/Devices/36A14FA3-84CD-4BD2-A919-C5B9747D0172/data/Containers/Data/PluginKitPlugin/5F3F9884-5401-4CE6-A355-C5C933711674/tmp/trim.FA994DE1-8B22-4689-BF05-E433A27B56B9.MOV"), title: "disaffected")]
-        print(dataSource)
+        let vPath = getDocumentsDirectory().appendingPathComponent("F6EB87D0-BEF8-49D3-82D4-F3812C237322-34608-000135522F05BF90.mp4")
+        dataSource = [DataObj(image:"https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url: vPath.absoluteString, title: "disaffected")]
+        
+//        dataSource += [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url:"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", title: "disaffected")]
+        //print(dataSource)
+        
+        
+        //demo 3
+//        dataSource = [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/image_659514fa.jpeg",
+//                    play_Url:  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+//                    title: "Ultralight Beam")]
     }
     
     func deleteAllData(_ entity:String) {
@@ -97,15 +104,48 @@ class ViewController: UIViewController, PHPickerViewControllerDelegate, UIImageP
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL else {
-            imagePickerController.dismiss(animated: true, completion: nil)
-            return;
+    func uniqueFilename(withPrefix prefix: String? = nil) -> String {
+        let uniqueString = ProcessInfo.processInfo.globallyUniqueString
+        
+        if prefix != nil {
+            return "\(prefix!)-\(uniqueString)"
         }
         
-        imagePickerController.dismiss(animated: true, completion: {
-            self.showAddForm(videourl: url)
-        })
+        return uniqueString
+    }
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+        
+//        let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! NSURL
+//
+//        let fileName = uniqueFilename()
+//        //print(fileName)
+//
+//        let videoData = NSData(contentsOf: videoURL as URL)
+//        let path = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+//        let newPath = path.appendingPathComponent(fileName+".mp4")
+//        do {
+//            try videoData?.write(to: newPath)
+//            print(newPath)
+//        } catch {
+//            print(error)
+//        }
+        //let vPath = getDocumentsDirectory().appendingPathComponent(fileName+".mp4")
+        //F6EB87D0-BEF8-49D3-82D4-F3812C237322-34608-000135522F05BF90
+        //print(vPath)
+//        guard let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL else {
+//            imagePickerController.dismiss(animated: true, completion: nil)
+//            return;
+//        }
+//        print(url)
+//        imagePickerController.dismiss(animated: true, completion: {
+//            self.showAddForm(videourl: url)
+//        })
     }
     
     func saveLocal(data: DataObj){
@@ -186,17 +226,12 @@ class ViewController: UIViewController, PHPickerViewControllerDelegate, UIImageP
         libraryItem.buttonColor = .clear
         libraryItem.imageSize = CGSize(width: 30, height: 30)
         libraryItem.action = { item in
-//            self.imagePickerController.sourceType = .photoLibrary
-//            self.imagePickerController.delegate = self
-//            self.imagePickerController.mediaTypes = ["public.movie"]
-//
-//            self.present(self.imagePickerController, animated: true, completion: nil)
+            self.imagePickerController.sourceType = .photoLibrary
+            self.imagePickerController.delegate = self
+            self.imagePickerController.mediaTypes = ["public.movie"]
+
+            self.present(self.imagePickerController, animated: true, completion: nil)
             
-            let photoLibrary = PHPhotoLibrary.shared()
-            let configuration = PHPickerConfiguration(photoLibrary: photoLibrary)
-            let picker = PHPickerViewController(configuration: configuration)
-            picker.delegate = self
-            present(picker, animated: true)
         }
 
         let yotubeItem = actionButton.addItem()
@@ -252,12 +287,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        DispatchQueue.main.async { [unowned self] in
-//        if self.presentedViewController != nil || self.mmPlayerLayer.isShrink == true {
-//                self.playerCollect.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
-//                self.updateDetail(at: indexPath)
-//            } else {
-//                self.presentDetail(at: indexPath)
-//            }
+        if self.presentedViewController != nil || self.mmPlayerLayer.isShrink == true {
+                self.playerCollect.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+                self.updateDetail(at: indexPath)
+            } else {
+                self.presentDetail(at: indexPath)
+            }
         }
     }
     
