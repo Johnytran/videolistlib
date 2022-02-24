@@ -11,7 +11,7 @@ import UIKit
 class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     let pickerController = UIImagePickerController()
-    var parentController = UIViewController();
+    var parentController = ViewController()
     var pickedImage: String = ""
     var parentVideo = URL(string: "")
     
@@ -27,7 +27,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    func getParent(parent: UIViewController){
+    func getParent(parent: ViewController){
         self.parentController = parent;
     }
     func getVideoURL(video: URL){
@@ -72,8 +72,10 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
             let tmpData = DataObj(image: self.pickedImage,
                                    play_Url: self.parentVideo?.absoluteString,
                                     title: title)
-            print(tmpData)
-            //self.removeFromSuperview();
+            //print(tmpData)
+            if(self.parentController.saveLocal(data: tmpData)){
+                self.removeFromSuperview();
+            }
           },
           completion: nil
         )

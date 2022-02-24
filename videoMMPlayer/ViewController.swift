@@ -35,42 +35,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         super.viewDidLoad()
         imagePickerController.delegate = self
         makeFloatMenu()
-        getLocalData()
-        //deleteAllData("Videos")
+        //getLocalData()
+        deleteAllData("Videos")
     }
     override func viewDidAppear(_ animated: Bool) {
         
     }
     
     func getLocalData(){
-//        guard let appDelegate =
-//          UIApplication.shared.delegate as? AppDelegate else {
-//          return
-//        }
-//
-//        let managedContext =
-//          appDelegate.persistentContainer.viewContext
-//
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Videos")
-//        request.returnsObjectsAsFaults = false
-//
-//        let result = (try? managedContext.fetch(request)) ?? []
-//        for data in result as! [NSManagedObject] {
-//
-//            //let title = (data.value(forKey: "title") as! String)
-//            let videourl = (data.value(forKey: "src") as! String)
-////                    let imageurl = (data.value(forKey: "image") as! String)
-//
-////                        dataSource += [DataObj(image: imageurl,
-////                                               play_Url: videourl,
-////                                               title: title)
-////
-////                        ]
-//               print(videourl)
-//         }
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+
+        let managedContext =
+          appDelegate.persistentContainer.viewContext
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Videos")
+        request.returnsObjectsAsFaults = false
+
+        let result = (try? managedContext.fetch(request)) ?? []
+        for data in result as! [NSManagedObject] {
+
+            let title = (data.value(forKey: "title") as! String)
+            let videourl = (data.value(forKey: "src") as! String)
+            let imageurl = (data.value(forKey: "image") as! String)
+
+                dataSource += [DataObj(image: imageurl,
+                                       play_Url: videourl,
+                                       title: title)
+
+                ]
+               //print(videourl)
+         }
                     
-        let vPath = getDocumentsDirectory().appendingPathComponent("F6EB87D0-BEF8-49D3-82D4-F3812C237322-34608-000135522F05BF90.mp4")
-        dataSource = [DataObj(image:"https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url: vPath.absoluteString, title: "disaffected")]
+//        let vPath = getDocumentsDirectory().appendingPathComponent("F6EB87D0-BEF8-49D3-82D4-F3812C237322-34608-000135522F05BF90.mp4")
+//        dataSource = [DataObj(image:"https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url: vPath.absoluteString, title: "disaffected")]
         
 //        dataSource += [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url:"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", title: "disaffected")]
         //print(dataSource)
@@ -121,42 +121,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
         
         
-//        let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! NSURL
-//
-//        let fileName = uniqueFilename()
-//        //print(fileName)
-//
-//        let videoData = NSData(contentsOf: videoURL as URL)
-//        let path = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
-//        let newPath = path.appendingPathComponent(fileName+".mp4")
-//        do {
-//            try videoData?.write(to: newPath)
-//            print(newPath)
-//        } catch {
-//            print(error)
-//        }
-        //let vPath = getDocumentsDirectory().appendingPathComponent(fileName+".mp4")
-        //F6EB87D0-BEF8-49D3-82D4-F3812C237322-34608-000135522F05BF90
-        //print(vPath)
-//        guard let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL else {
-//            imagePickerController.dismiss(animated: true, completion: nil)
-//            return;
-//        }
-//        print(url)
-//        imagePickerController.dismiss(animated: true, completion: {
-//            self.showAddForm(videourl: url)
-//        })
+        let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! NSURL
+
+        let fileName = uniqueFilename()
+        //print(fileName)
+
+        let videoData = NSData(contentsOf: videoURL as URL)
+        let path = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+        let newPath = path.appendingPathComponent(fileName+".mp4")
+        do {
+            try videoData?.write(to: newPath)
+            imagePickerController.dismiss(animated: true, completion: {
+                self.showAddForm(videourl: newPath)
+            })
+        } catch {
+            print(error)
+        }
+
     }
     
-    func saveLocal(data: DataObj){
+    func saveLocal(data: DataObj) -> Bool{
 
         if(data.title).isEmpty || (data.play_Url)!.isEmpty{
-            return
+            return false
         }
         
         guard let appDelegate =
           UIApplication.shared.delegate as? AppDelegate else {
-          return
+          return false
         }
         
         let managedContext =
@@ -167,12 +159,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
                                      in: managedContext)!
         let videoList = NSManagedObject(entity: entity, insertInto: managedContext)
         
-        videoList.setValue(data.title, forKeyPath: "videotitle")
+        videoList.setValue(data.title, forKeyPath: "title")
         videoList.setValue(data.image, forKeyPath: "image")
         videoList.setValue(data.play_Url, forKeyPath: "src")
         
-        appDelegate.saveContext()
-        playerCollect.reloadData()
+        if(appDelegate.saveContext()){
+            playerCollect.reloadData()
+            return true
+        }
+        return false
     }
     
     func showAddForm(videourl: URL){
