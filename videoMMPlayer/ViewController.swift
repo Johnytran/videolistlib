@@ -35,8 +35,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         super.viewDidLoad()
         imagePickerController.delegate = self
         makeFloatMenu()
-        //getLocalData()
-        deleteAllData("Videos")
+        getLocalData()
+        //deleteAllData("Videos")
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -66,20 +66,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
                                        title: title)
 
                 ]
-               //print(videourl)
+               print(imageurl)
          }
                     
-//        let vPath = getDocumentsDirectory().appendingPathComponent("F6EB87D0-BEF8-49D3-82D4-F3812C237322-34608-000135522F05BF90.mp4")
-//        dataSource = [DataObj(image:"https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url: vPath.absoluteString, title: "disaffected")]
-        
-//        dataSource += [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url:"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", title: "disaffected")]
-        //print(dataSource)
-        
-        
-        //demo 3
-//        dataSource = [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/image_659514fa.jpeg",
-//                    play_Url:  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-//                    title: "Ultralight Beam")]
+
     }
     
     func deleteAllData(_ entity:String) {
@@ -104,26 +94,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
     }
     
-    func uniqueFilename(withPrefix prefix: String? = nil) -> String {
-        let uniqueString = ProcessInfo.processInfo.globallyUniqueString
-        
-        if prefix != nil {
-            return "\(prefix!)-\(uniqueString)"
-        }
-        
-        return uniqueString
-    }
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
         
         let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! NSURL
+        
+        let tmpStr = String()
 
-        let fileName = uniqueFilename()
+        let fileName = tmpStr.uniqueFilename()
         //print(fileName)
 
         let videoData = NSData(contentsOf: videoURL as URL)

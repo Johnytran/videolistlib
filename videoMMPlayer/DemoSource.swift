@@ -27,3 +27,13 @@ class DemoSource: NSObject {
         ]
     }
 }
+
+
+//        dataSource += [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg", play_Url:"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", title: "disaffected")]
+//print(dataSource)
+
+
+//demo 3
+//        dataSource = [DataObj(image: "https://lumiere-a.akamaihd.net/v1/images/image_659514fa.jpeg",
+//                    play_Url:  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+//                    title: "Ultralight Beam")]

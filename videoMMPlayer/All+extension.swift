@@ -62,3 +62,14 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
+extension String{
+    func uniqueFilename(withPrefix prefix: String? = nil) -> String {
+        let uniqueString = ProcessInfo.processInfo.globallyUniqueString
+        
+        if prefix != nil {
+            return "\(prefix!)-\(uniqueString)"
+        }
+        
+        return uniqueString
+    }
+}

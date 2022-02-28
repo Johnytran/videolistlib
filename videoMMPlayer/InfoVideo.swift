@@ -87,7 +87,22 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
             imgPhotoCover.image = image
         }
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
-        pickedImage = imageURL!.absoluteString
         
+        
+        let tmpStr = String()
+
+        let fileName = tmpStr.uniqueFilename()
+        //print(fileName)
+
+        let imgData = NSData(contentsOf: imageURL! as URL)
+        let path = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+        
+        let newPath = URL(string: "\(path)/"+fileName+".jpg")
+        do {
+            try imgData!.write(to: newPath!, options: .atomic)
+            pickedImage = newPath!.absoluteString
+        } catch {
+            print(error)
+        }
     }
 }

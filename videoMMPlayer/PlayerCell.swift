@@ -11,8 +11,15 @@ import UIKit
 class PlayerCell: UICollectionViewCell {
     var data:DataObj? {
         didSet {
-            self.imgView.downloaded(from: (data?.image)!)
-            self.labTitle.text = data?.title
+            if((data) != nil){
+                if FileManager.default.fileExists(atPath: (data?.image)!) {
+                    let url = NSURL(string: (data?.image)!)
+                    let data = NSData(contentsOf: url! as URL)
+                    self.imgView.image = UIImage(data: data! as Data)
+                }
+                
+                self.labTitle.text = data?.title
+            }
         }
     }
     
