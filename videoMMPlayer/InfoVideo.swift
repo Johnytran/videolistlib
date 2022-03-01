@@ -13,7 +13,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     let pickerController = UIImagePickerController()
     var parentController = ViewController()
     var pickedImage: String = ""
-    var parentVideo = URL(string: "")
+    var parentVideo: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +30,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     func getParent(parent: ViewController){
         self.parentController = parent;
     }
-    func getVideoURL(video: URL){
+    func getVideoURL(video: String){
         self.parentVideo = video;
     }
     @IBAction func Cancel(_ sender: Any) {
@@ -70,7 +70,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
           animations: {
             
             let tmpData = DataObj(image: self.pickedImage,
-                                   play_Url: self.parentVideo?.absoluteString,
+                                   play_Url: self.parentVideo,
                                     title: title)
             //print(tmpData)
             if(self.parentController.saveLocal(data: tmpData)){
@@ -86,9 +86,6 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
         if let image = info[.originalImage] as? UIImage {
             imgPhotoCover.image = image
         
-            let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
-            
-            
             let tmpStr = String()
 
             let fileName = tmpStr.uniqueFilename()+".jpg"

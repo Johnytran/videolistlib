@@ -39,10 +39,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         //deleteAllData("Videos")
     }
     override func viewDidAppear(_ animated: Bool) {
-        
+        getLocalData()
     }
     
     func getLocalData(){
+        
+        dataSource = [DataObj]()
+        
         guard let appDelegate =
           UIApplication.shared.delegate as? AppDelegate else {
           return
@@ -55,23 +58,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         request.returnsObjectsAsFaults = false
 
         let result = (try? managedContext.fetch(request)) ?? []
+        
         for data in result as! [NSManagedObject] {
 
             let title = (data.value(forKey: "title") as! String)
             let videourl = (data.value(forKey: "src") as! String)
             let imageurl = (data.value(forKey: "image") as! String)
+            
+            let iPath = getDocumentsDirectory().appendingPathComponent(imageurl)
 
-//                dataSource += [DataObj(image: imageurl,
-//                                       play_Url: videourl,
-//                                       title: title)
-//
-//                ]
+            let vPath = getDocumentsDirectory().appendingPathComponent(videourl)
+            dataSource += [DataObj(image: iPath.absoluteString, play_Url: vPath.absoluteString, title: "disaffected")]
+            dataSource += [DataObj(image: iPath.absoluteString,
+                                   play_Url: vPath.absoluteString,
+                                       title: title)
+
+                ]
                //print(dataSource)
          }
-        let iPath = getDocumentsDirectory().appendingPathComponent("E3BE2FBB-A218-4A3C-88DA-3590EAB1A14F-44852-0001830D3D450CB1.jpg")
-
-        let vPath = getDocumentsDirectory().appendingPathComponent("EE68C459-9678-402C-AAB8-C5ADFE015AEC-44852-0001830B8C9D7449.mp4")
-        dataSource += [DataObj(image: iPath.absoluteString, play_Url: vPath.absoluteString, title: "disaffected")]
+        
 
     }
     
@@ -88,16 +93,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
         let tmpStr = String()
 
-        let fileName = tmpStr.uniqueFilename()
+        let fileName = tmpStr.uniqueFilename()+".mp4"
         //print(fileName)
 
         let videoData = NSData(contentsOf: videoURL as URL)
         let path = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
-        let newPath = path.appendingPathComponent(fileName+".mp4")
+        let newPath = path.appendingPathComponent(fileName)
         do {
             try videoData?.write(to: newPath)
             imagePickerController.dismiss(animated: true, completion: {
-                self.showAddForm(videourl: newPath)
+                self.showAddForm(videourl: fileName)
             })
         } catch {
             print(error)
@@ -135,7 +140,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         return false
     }
     
-    func showAddForm(videourl: URL){
+    func showAddForm(videourl: String){
         if let addVideoView = Bundle.main.loadNibNamed("InfoVideo", owner: self, options: nil){
             let formView = addVideoView.first as! InfoVideo
             formView.frame = self.view.bounds
