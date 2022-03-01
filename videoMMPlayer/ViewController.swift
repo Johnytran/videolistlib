@@ -61,38 +61,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             let videourl = (data.value(forKey: "src") as! String)
             let imageurl = (data.value(forKey: "image") as! String)
 
-                dataSource += [DataObj(image: imageurl,
-                                       play_Url: videourl,
-                                       title: title)
-
-                ]
-               print(imageurl)
+//                dataSource += [DataObj(image: imageurl,
+//                                       play_Url: videourl,
+//                                       title: title)
+//
+//                ]
+               //print(dataSource)
          }
-                    
+        let iPath = getDocumentsDirectory().appendingPathComponent("E3BE2FBB-A218-4A3C-88DA-3590EAB1A14F-44852-0001830D3D450CB1.jpg")
+
+        let vPath = getDocumentsDirectory().appendingPathComponent("EE68C459-9678-402C-AAB8-C5ADFE015AEC-44852-0001830B8C9D7449.mp4")
+        dataSource += [DataObj(image: iPath.absoluteString, play_Url: vPath.absoluteString, title: "disaffected")]
 
     }
     
-    func deleteAllData(_ entity:String) {
-        guard let appDelegate =
-          UIApplication.shared.delegate as? AppDelegate else {
-          return
-        }
-        
-        let managedContext =
-          appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        fetchRequest.returnsObjectsAsFaults = false
-        do {
-            let results = try managedContext.fetch(fetchRequest)
-            for object in results {
-                guard let objectData = object as? NSManagedObject else {continue}
-                managedContext.delete(objectData)
-            }
-        } catch let error {
-            print("Detele all data in \(entity) error :", error)
-        }
-    }
+    func getDocumentsDirectory() -> URL {
+         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+         return paths[0]
+     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         

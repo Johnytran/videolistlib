@@ -85,24 +85,29 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
         pickerController.dismiss(animated: true, completion: nil)
         if let image = info[.originalImage] as? UIImage {
             imgPhotoCover.image = image
-        }
-        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
         
-        
-        let tmpStr = String()
+            let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
+            
+            
+            let tmpStr = String()
 
-        let fileName = tmpStr.uniqueFilename()
-        //print(fileName)
+            let fileName = tmpStr.uniqueFilename()+".jpg"
+            //print(fileName)
 
-        let imgData = NSData(contentsOf: imageURL! as URL)
-        let path = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
-        
-        let newPath = URL(string: "\(path)/"+fileName+".jpg")
-        do {
-            try imgData!.write(to: newPath!, options: .atomic)
-            pickedImage = newPath!.absoluteString
-        } catch {
-            print(error)
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+            let fileURL = documentsDirectory.appendingPathComponent(fileName)
+            if let data = image.jpegData(compressionQuality:  1.0){
+                do {
+                    // writes the image data to disk
+                    try data.write(to: fileURL)
+                    pickedImage = fileName
+                    print("image saved")
+                } catch {
+                    print("error saving image:", error)
+                }
+            }
+            
         }
     }
 }
