@@ -36,7 +36,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imagePickerController.delegate = self
         makeFloatMenu()
         getLocalData()
-        //deleteAllData("Videos")
     }
     override func viewDidAppear(_ animated: Bool) {
         getLocalData()
@@ -68,13 +67,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             let iPath = getDocumentsDirectory().appendingPathComponent(imageurl)
 
             let vPath = getDocumentsDirectory().appendingPathComponent(videourl)
-            dataSource += [DataObj(image: iPath.absoluteString, play_Url: vPath.absoluteString, title: "disaffected")]
+            
             dataSource += [DataObj(image: iPath.absoluteString,
                                    play_Url: vPath.absoluteString,
                                        title: title)
 
                 ]
-               //print(dataSource)
+               //print(title)
          }
         
 
@@ -264,6 +263,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
     fileprivate func updateDetail(at indexPath: IndexPath) {
         let value = dataSource[indexPath.row]
+        //print(value)
         self.mmPlayerLayer.thumbImageView.downloaded(from: value.image!)
         self.mmPlayerLayer.set(url: URL(string: dataSource[indexPath.row].play_Url!))
         self.mmPlayerLayer.resume()

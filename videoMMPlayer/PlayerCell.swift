@@ -11,12 +11,12 @@ import UIKit
 class PlayerCell: UICollectionViewCell {
     var data:DataObj? {
         didSet {
-            
-            self.labTitle.text = data?.title
-            let url = NSURL(string: (data?.image)!)
-            let data = NSData(contentsOf: url! as URL)
-            self.imgView.image = UIImage(data: data! as Data)
-            
+            if(data != nil){
+                self.labTitle.text = data?.title
+                let url = NSURL(string: (data?.image)!)
+                let data = NSData(contentsOf: url! as URL)
+                self.imgView.image = UIImage(data: data! as Data)
+            }
             
             
         }
