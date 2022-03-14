@@ -31,15 +31,39 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     let imagePickerController = UIImagePickerController()
     
     @IBOutlet weak var playerCollect: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
         makeFloatMenu()
         getLocalData()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-        getLocalData()
+        
     }
+
+    func setEditing2(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+
+        playerCollect.allowsMultipleSelection = editing
+        let indexPaths = playerCollect.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = playerCollect.cellForItem(at: indexPath) as! PlayerCell
+            cell.isInEditingMode = editing
+        }
+    }
+    
+    @IBAction func setEditMode(_ sender: UIBarButtonItem) {
+        if(self.isEditing){
+            sender.title = "Edit"
+            self.setEditing2(false, animated: true)
+        }else{
+            sender.title = "Done"
+            self.setEditing2(true, animated: true)
+        }
+    }
+    
     
     func getLocalData(){
         
@@ -206,7 +230,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         yotubeItem.action = { item in
             
         }
-
+        
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
@@ -255,7 +279,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
                 self.playerCollect.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
                 self.updateDetail(at: indexPath)
             } else {
-                self.presentDetail(at: indexPath)
+                //self.presentDetail(at: indexPath)
             }
         }
     }

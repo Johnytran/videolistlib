@@ -21,14 +21,33 @@ class PlayerCell: UICollectionViewCell {
             
         }
     }
+    // 1
+    var isInEditingMode: Bool = false {
+        didSet {
+            checkmarkLabel.isHidden = !isInEditingMode
+        }
+    }
+
+    // 2
+    override var isSelected: Bool {
+        didSet {
+            if isInEditingMode {
+                checkmarkLabel.text = isSelected ? "✓" : ""
+            }
+        }
+    }
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var labTitle: UILabel!
     
+    @IBOutlet weak var checkmarkLabel: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.imgView.isHidden = false
         data = nil
+    }
+    @IBAction func DeleteVideo(_ sender: Any) {
+        
     }
 }
