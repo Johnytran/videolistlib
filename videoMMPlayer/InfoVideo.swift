@@ -14,6 +14,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
     var parentController = ViewController()
     var pickedImage: String = ""
     var parentVideo: String = ""
+    var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,6 +76,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
             //print(tmpData)
             if(self.parentController.saveLocal(data: tmpData)){
                 self.removeFromSuperview();
+                self.collectionView.reloadData();
             }
           },
           completion: nil

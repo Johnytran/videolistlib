@@ -26,7 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         return l
     }()
     var dataSource = [DataObj]()
-    
+    var coreSource: [NSManagedObject] = []
     
     let imagePickerController = UIImagePickerController()
     
@@ -98,6 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
 
                 ]
                //print(title)
+            coreSource.append(data)
          }
         
 
@@ -169,6 +170,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             formView.frame = self.view.bounds
             formView.getParent(parent: self);
             formView.getVideoURL(video: videourl);
+            formView.collectionView = self.playerCollect
             UIView.transition(
                 with: self.view,
                 duration: 0.5,
@@ -281,6 +283,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             } else {
                 //self.presentDetail(at: indexPath)
             }
+            
         }
     }
     
@@ -336,6 +339,10 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCell", for: indexPath) as? PlayerCell {
             cell.data = dataSource[indexPath.row]
+            cell.sourceData = dataSource
+            cell.indexPath = indexPath
+            cell.coreSource = coreSource
+            cell.collectionView = self.playerCollect
             return cell
         }
         return UICollectionViewCell()

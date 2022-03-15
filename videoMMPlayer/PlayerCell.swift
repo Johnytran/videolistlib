@@ -1,12 +1,5 @@
-//
-//  PlayerCell.swift
-//  MMPlayerView
-//
-//  Created by Millman YANG on 2017/8/23.
-//  Copyright © 2017年 CocoaPods. All rights reserved.
-//
-
 import UIKit
+import CoreData
 
 class PlayerCell: UICollectionViewCell {
     var data:DataObj? {
@@ -21,6 +14,11 @@ class PlayerCell: UICollectionViewCell {
             
         }
     }
+    var sourceData = [DataObj]()
+    var coreSource: [NSManagedObject] = []
+    var collectionView: UICollectionView!
+    
+    var indexPath: IndexPath = []
     // 1
     var isInEditingMode: Bool = false {
         didSet {
@@ -48,6 +46,12 @@ class PlayerCell: UICollectionViewCell {
         data = nil
     }
     @IBAction func DeleteVideo(_ sender: Any) {
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let itemToDelete = coreSource[indexPath.item]
+        sourceData.remove(at: indexPath.item)
+        context.delete(itemToDelete)
+        collectionView!.deleteItems(at: [indexPath])
+        appDelegate.saveContext()
     }
 }
