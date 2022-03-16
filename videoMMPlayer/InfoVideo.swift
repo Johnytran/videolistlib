@@ -76,6 +76,7 @@ class InfoVideo: UIView, UIImagePickerControllerDelegate & UINavigationControlle
             //print(tmpData)
             if(self.parentController.saveLocal(data: tmpData)){
                 self.removeFromSuperview();
+                self.parentController.getLocalData();
                 self.collectionView.reloadData();
             }
           },
