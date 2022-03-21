@@ -343,6 +343,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.indexPath = indexPath
             cell.coreSource = coreSource
             cell.collectionView = self.playerCollect
+            cell.parent = self
             return cell
         }
         return UICollectionViewCell()

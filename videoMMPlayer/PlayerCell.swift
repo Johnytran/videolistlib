@@ -17,6 +17,7 @@ class PlayerCell: UICollectionViewCell {
     var sourceData = [DataObj]()
     var coreSource: [NSManagedObject] = []
     var collectionView: UICollectionView!
+    var parent: ViewController!
     
     var indexPath: IndexPath = []
     // 1
@@ -48,10 +49,15 @@ class PlayerCell: UICollectionViewCell {
     @IBAction func DeleteVideo(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
+        print(coreSource[indexPath.item])
         let itemToDelete = coreSource[indexPath.item]
+        
         sourceData.remove(at: indexPath.item)
         context.delete(itemToDelete)
         collectionView!.deleteItems(at: [indexPath])
         appDelegate.saveContext()
+        self.parent.dataSource = sourceData;
+        //self.parent.getLocalData()
+        collectionView.reloadData()
     }
 }
