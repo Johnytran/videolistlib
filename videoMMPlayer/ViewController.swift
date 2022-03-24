@@ -27,6 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     }()
     var dataSource = [DataObj]()
     var coreSource: [NSManagedObject] = []
+    var indexPaths = [IndexPath]()
     
     let imagePickerController = UIImagePickerController()
     
@@ -47,9 +48,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         super.setEditing(editing, animated: animated)
 
         playerCollect.allowsMultipleSelection = editing
-        let indexPaths = playerCollect.indexPathsForVisibleItems
-        for indexPath in indexPaths {
-            let cell = playerCollect.cellForItem(at: indexPath) as! PlayerCell
+        //print(self.indexPaths)
+        for index in self.indexPaths {
+
+            let cell = playerCollect.cellForItem(at: index) as! PlayerCell
+            //print(index.item)
             cell.isInEditingMode = editing
         }
     }
@@ -337,6 +340,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCell", for: indexPath) as? PlayerCell {
             cell.data = dataSource[indexPath.row]
             cell.sourceData = dataSource
@@ -344,8 +348,11 @@ extension ViewController: UICollectionViewDataSource {
             cell.coreSource = coreSource
             cell.collectionView = self.playerCollect
             cell.parent = self
+            self.indexPaths.append(indexPath)
+            
             return cell
         }
+        
         return UICollectionViewCell()
     }
 }

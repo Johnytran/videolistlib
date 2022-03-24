@@ -57,7 +57,6 @@ class PlayerCell: UICollectionViewCell {
         collectionView!.deleteItems(at: [indexPath])
         appDelegate.saveContext()
         self.parent.dataSource = sourceData;
-        //self.parent.getLocalData()
         collectionView.reloadData()
     }
 }
