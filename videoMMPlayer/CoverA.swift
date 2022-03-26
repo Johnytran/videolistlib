@@ -19,6 +19,7 @@ class CoverA: UIView, MMPlayerCoverViewProtocol {
     @IBOutlet weak var labTotal: UILabel!
     @IBOutlet weak var labCurrent: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         btnPlay.imageView?.tintColor = UIColor.white

@@ -20,21 +20,6 @@ class PlayerCell: UICollectionViewCell {
     var parent: ViewController!
     
     var indexPath: IndexPath = []
-    // 1
-    var isInEditingMode: Bool = false {
-        didSet {
-            checkmarkLabel.isHidden = !isInEditingMode
-        }
-    }
-
-    // 2
-    override var isSelected: Bool {
-        didSet {
-            if isInEditingMode {
-                checkmarkLabel.text = isSelected ? "✓" : ""
-            }
-        }
-    }
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var labTitle: UILabel!

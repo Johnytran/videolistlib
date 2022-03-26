@@ -44,30 +44,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
     }
 
-    func setEditing2(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-
-        playerCollect.allowsMultipleSelection = editing
-        //print(self.indexPaths)
-        for index in self.indexPaths {
-
-            let cell = playerCollect.cellForItem(at: index) as! PlayerCell
-            //print(index.item)
-            cell.isInEditingMode = editing
-        }
-    }
-    
-    @IBAction func setEditMode(_ sender: UIBarButtonItem) {
-        if(self.isEditing){
-            sender.title = "Edit"
-            self.setEditing2(false, animated: true)
-        }else{
-            sender.title = "Done"
-            self.setEditing2(true, animated: true)
-        }
-    }
-    
-    
     func getLocalData(){
         
         dataSource = [DataObj]()
@@ -284,7 +260,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
                 self.playerCollect.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
                 self.updateDetail(at: indexPath)
             } else {
-                //self.presentDetail(at: indexPath)
+                self.presentDetail(at: indexPath)
             }
             
         }
@@ -335,12 +311,15 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        //print("a")
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCell", for: indexPath) as? PlayerCell {
             cell.data = dataSource[indexPath.row]
             cell.sourceData = dataSource
@@ -348,6 +327,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.coreSource = coreSource
             cell.collectionView = self.playerCollect
             cell.parent = self
+            
             self.indexPaths.append(indexPath)
             
             return cell
