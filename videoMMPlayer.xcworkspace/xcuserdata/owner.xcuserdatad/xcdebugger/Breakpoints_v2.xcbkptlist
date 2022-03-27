@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "323"
             endingLineNumber = "323"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "318"
             endingLineNumber = "318"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,8 +64,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,8 +96,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "260"
             endingLineNumber = "260"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,8 +112,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "258"
             endingLineNumber = "258"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "F732C49D-6CBA-4E44-8478-BB17E59AE4F2 - c8fb61706ee9d82e"
@@ -160,8 +160,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "286"
             endingLineNumber = "286"
-            landmarkName = "updateCell(at:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,8 +176,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "324"
             endingLineNumber = "324"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,8 +192,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "getLocalData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,8 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "saveLocal(data:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,8 +288,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "271"
             endingLineNumber = "271"
-            landmarkName = "updateDetail(at:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,8 +304,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "getLocalData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -320,8 +320,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -336,8 +336,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

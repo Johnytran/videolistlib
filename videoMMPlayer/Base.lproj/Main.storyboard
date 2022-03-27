@@ -11,14 +11,14 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="videoMMPlayer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController modalTransitionStyle="crossDissolve" interfaceStyle="light" id="BYZ-38-t0r" customClass="ViewController" customModule="videoMMPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="EZYGradientView" customModule="videoMMPlayer" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yMN-Yr-zfB">
-                                <rect key="frame" x="0.0" y="203" width="414" height="610"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <rect key="frame" x="20" y="203" width="374" height="693"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EgN-Xb-LXB">
                                     <size key="itemSize" width="128" height="162"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -62,7 +62,7 @@
                                                 </button>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="JM8-Me-ub9" firstAttribute="leading" secondItem="wA4-X2-0oY" secondAttribute="leading" constant="4" id="2jS-XS-dTN"/>
                                             <constraint firstAttribute="bottom" secondItem="2Bp-1y-TFP" secondAttribute="bottom" constant="69" id="OXB-1f-DLU"/>
@@ -101,12 +101,39 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4e9-uY-C4d" secondAttribute="trailing" constant="51" id="2LB-OZ-5mH"/>
                             <constraint firstItem="4e9-uY-C4d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="7uB-3W-djR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yMN-Yr-zfB" secondAttribute="trailing" id="Dmh-6E-YyB"/>
-                            <constraint firstItem="yMN-Yr-zfB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LFH-Cr-z1t"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yMN-Yr-zfB" secondAttribute="bottom" id="TRJ-I0-MeC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yMN-Yr-zfB" secondAttribute="trailing" constant="20" id="Dmh-6E-YyB"/>
+                            <constraint firstItem="yMN-Yr-zfB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LFH-Cr-z1t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yMN-Yr-zfB" secondAttribute="bottom" constant="-83" id="TRJ-I0-MeC"/>
                             <constraint firstItem="yMN-Yr-zfB" firstAttribute="top" secondItem="4e9-uY-C4d" secondAttribute="bottom" constant="32" id="VMf-0S-7lD"/>
                             <constraint firstItem="4e9-uY-C4d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="vbJ-MU-ouh"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.1137254902" green="0.1215686275" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.10980392160000001" green="0.1215686275" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                <color key="value" red="0.2104130089" green="0.28257969020000001" blue="0.37943297619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startPointX">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="colorRatio">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fadeIntensity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="angleº">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isBlur" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -128,12 +155,6 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

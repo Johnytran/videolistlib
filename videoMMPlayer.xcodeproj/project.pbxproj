@@ -10,6 +10,7 @@
 		79415CD4BA216A412816B284 /* Pods_videoMMPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7820CB032C284258860BF4C /* Pods_videoMMPlayer.framework */; };
 		EB15FE492793A2D900473347 /* InfoVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB15FE482793A2D900473347 /* InfoVideo.xib */; };
 		EB15FE4C2793A2FC00473347 /* InfoVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15FE4B2793A2FC00473347 /* InfoVideo.swift */; };
+		EB300EE927F12C6900488FB5 /* EZYGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB300EE827F12C6900488FB5 /* EZYGradientView.swift */; };
 		EB5C10B7277FD8F100BF3A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */; };
 		EB5C10B9277FD8F100BF3A77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10B8277FD8F100BF3A77 /* SceneDelegate.swift */; };
 		EB5C10BB277FD8F100BF3A77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C10BA277FD8F100BF3A77 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		DB9E625E8BC1C33A61A2A063 /* Pods-videoMMPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-videoMMPlayer.release.xcconfig"; path = "Target Support Files/Pods-videoMMPlayer/Pods-videoMMPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		EB15FE482793A2D900473347 /* InfoVideo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoVideo.xib; sourceTree = "<group>"; };
 		EB15FE4B2793A2FC00473347 /* InfoVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVideo.swift; sourceTree = "<group>"; };
+		EB300EE827F12C6900488FB5 /* EZYGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZYGradientView.swift; sourceTree = "<group>"; };
 		EB5C10B3277FD8F100BF3A77 /* videoMMPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videoMMPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5C10B6277FD8F100BF3A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5C10B8277FD8F100BF3A77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		EB5C10B5277FD8F100BF3A77 /* videoMMPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				EB300EE827F12C6900488FB5 /* EZYGradientView.swift */,
 				EB5C10F42782C20300BF3A77 /* String+second.swift */,
 				EB5C10EB2782BFDA00BF3A77 /* CoverA.swift */,
 				EB5C10EC2782BFDA00BF3A77 /* CoverA.xib */,
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB300EE927F12C6900488FB5 /* EZYGradientView.swift in Sources */,
 				EB5C10FB2784457400BF3A77 /* DemoSource.swift in Sources */,
 				EB5C10F82784431D00BF3A77 /* PlayerCell.swift in Sources */,
 				EBC09F302798004700AB7967 /* All+extension.swift in Sources */,
