@@ -33,6 +33,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     
     @IBOutlet weak var playerCollect: UICollectionView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.playerCollect.register(UINib(nibName: "PlayCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCell")
