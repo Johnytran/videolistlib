@@ -35,6 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.playerCollect.register(UINib(nibName: "PlayCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCell")
         imagePickerController.delegate = self
         makeFloatMenu()
         getLocalData()
@@ -328,7 +329,18 @@ extension ViewController: UICollectionViewDataSource {
             cell.collectionView = self.playerCollect
             cell.parent = self
             
-            self.indexPaths.append(indexPath)
+            
+            let colorTop =  UIColor(red: 38/255.0, green: 41/255.0, blue: 45/255.0, alpha: 1.0).cgColor
+            let colorBottom = UIColor(red: 47/255.0, green: 52/255.0, blue: 57/255.0, alpha: 1.0).cgColor
+
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [colorTop, colorBottom]
+            gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+            gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+            gradientLayer.frame = CGRect(x: 20, y: 0, width: (cell.frame.width)-50, height: cell.frame.height)
+            gradientLayer.cornerRadius = 50
+            cell.layer.insertSublayer(gradientLayer, at:0)
+            
             
             return cell
         }
