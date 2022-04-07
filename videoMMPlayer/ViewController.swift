@@ -39,6 +39,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imagePickerController.delegate = self
         makeFloatMenu()
         getLocalData()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 50
+        playerCollect!.collectionViewLayout = layout
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -253,6 +256,7 @@ extension ViewController: MMPlayerFromProtocol {
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let m = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
+        
         return CGSize(width: m, height: m*0.75)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -337,8 +341,12 @@ extension ViewController: UICollectionViewDataSource {
             gradientLayer.colors = [colorTop, colorBottom]
             gradientLayer.startPoint = CGPoint(x: 0, y: 1)
             gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-            gradientLayer.frame = CGRect(x: 20, y: 0, width: (cell.frame.width)-50, height: cell.frame.height)
+            gradientLayer.frame = CGRect(x: 20, y: 0, width: (cell.frame.width)-50, height: cell.frame.height-40)
             gradientLayer.cornerRadius = 50
+            gradientLayer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+            gradientLayer.shadowOffset = CGSize(width: 10, height: 15)
+            gradientLayer.shadowRadius = 5
+            gradientLayer.shadowOpacity = 0.8
             cell.layer.insertSublayer(gradientLayer, at:0)
             
             
