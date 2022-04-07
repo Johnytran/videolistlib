@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yMN-Yr-zfB">
-                                <rect key="frame" x="20" y="203" width="374" height="693"/>
+                                <rect key="frame" x="20" y="153" width="374" height="743"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EgN-Xb-LXB">
                                     <size key="itemSize" width="128" height="186"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Play List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-uY-C4d">
-                                <rect key="frame" x="52" y="105" width="311" height="66"/>
+                                <rect key="frame" x="0.0" y="55" width="414" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="8aT-ee-xTb"/>
                                 </constraints>
@@ -55,13 +55,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4e9-uY-C4d" secondAttribute="trailing" constant="51" id="2LB-OZ-5mH"/>
-                            <constraint firstItem="4e9-uY-C4d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="7uB-3W-djR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4e9-uY-C4d" secondAttribute="trailing" id="2LB-OZ-5mH"/>
+                            <constraint firstItem="4e9-uY-C4d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="7uB-3W-djR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yMN-Yr-zfB" secondAttribute="trailing" constant="20" id="Dmh-6E-YyB"/>
                             <constraint firstItem="yMN-Yr-zfB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LFH-Cr-z1t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yMN-Yr-zfB" secondAttribute="bottom" constant="-83" id="TRJ-I0-MeC"/>
                             <constraint firstItem="yMN-Yr-zfB" firstAttribute="top" secondItem="4e9-uY-C4d" secondAttribute="bottom" constant="32" id="VMf-0S-7lD"/>
-                            <constraint firstItem="4e9-uY-C4d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="vbJ-MU-ouh"/>
+                            <constraint firstItem="4e9-uY-C4d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vbJ-MU-ouh"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="firstColor">

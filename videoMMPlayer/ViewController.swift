@@ -207,14 +207,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             
         }
 
-        let yotubeItem = actionButton.addItem()
-        yotubeItem.titleLabel.text = "Youtube"
-        yotubeItem.imageView.image = UIImage(named: "youtube")
-        yotubeItem.buttonColor = .clear
-        yotubeItem.imageSize = CGSize(width: 100, height: 50)
-        yotubeItem.action = { item in
-            
-        }
+//        let yotubeItem = actionButton.addItem()
+//        yotubeItem.titleLabel.text = "Youtube"
+//        yotubeItem.imageView.image = UIImage(named: "youtube")
+//        yotubeItem.buttonColor = .clear
+//        yotubeItem.imageSize = CGSize(width: 100, height: 50)
+//        yotubeItem.action = { item in
+//
+//        }
         
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
